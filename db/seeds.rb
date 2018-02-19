@@ -7,13 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Movie.create!([
-  {
-    name: "Transformer", 
-    summary: "The fate of humanity is at stake when two races of robots, the good Autobots and the villainous Decepticons, bring their war to Earth. The robots have the ability to change into different mechanical objects as they seek the key to ultimate power. Only a human youth, Sam Witwicky (Shia LaBeouf) can save the world from total destruction", 
-    actor: "Mark Wahlberg", 
-    rating: 10, 
-    genre:"Action Film",
-    content_url: "http://techslides.com/demos/sample-videos/small.mp4"
-  }
-  ])
+# Movie.create!([
+#   {
+#     name: "Transformer", 
+#     summary: "The fate of humanity is at stake when two races of robots, the good Autobots and the villainous Decepticons, bring their war to Earth. The robots have the ability to change into different mechanical objects as they seek the key to ultimate power. Only a human youth, Sam Witwicky (Shia LaBeouf) can save the world from total destruction", 
+#     actor: "Mark Wahlberg", 
+#     rating: 10, 
+#     genre:"Action Film",
+#     content_url: "http://techslides.com/demos/sample-videos/small.mp4"
+#   }
+#   ])
