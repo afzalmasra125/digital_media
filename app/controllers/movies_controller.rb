@@ -12,8 +12,14 @@ class MoviesController < ApplicationController
                         genre: params[:genre],
                         content_url: params[:content_url]
                        })
-    movie.save
-    render json: movie.as_json
+    if movie.save
+      image = Image.new({
+                        image_url: params[:image_url],
+                         movie_id: movie.id 
+        })
+        image.save
+        render json: movie.as_json
+    end
   end 
   def show
     movies = Movie.find(params[:id])

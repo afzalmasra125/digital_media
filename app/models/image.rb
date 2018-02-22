@@ -1,3 +1,3 @@
 class Image < ApplicationRecord
-  belongs_to :movies
+  belongs_to :movie
 end

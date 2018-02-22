@@ -5,12 +5,8 @@ Rails.application.routes.draw do
    patch '/movies/:id' => 'movies#update'
    delete '/movies/:id' => 'movies#destroy'
 
-   get '/images' => 'images#index'
-   post '/images' => 'images#create'
-   get '/images/:id' => 'images#show'
-   patch '/images/:id' => 'images#update'
-   delete '/images/:id' => 'images#destroy'
-
+    post '/user_token' => 'user_token#create'
+    post '/users' => 'users#create'
 end
 
 

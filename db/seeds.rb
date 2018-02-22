@@ -17,3 +17,10 @@
 #     content_url: "http://techslides.com/demos/sample-videos/small.mp4"
 #   }
 #   ])
+
+# Image.create!([
+  # {image_url:"http://t3.gstatic.com/images?q=tbn:ANd9GcShVoGfnvhFVzzcgv-xKrqotmkrRY1IPWhQsQ7eE_aZhKsAl-eC", movie_id: 3}])
+
+  User.create!([ {first_name: "Afzal", last_name: "Masra", email:"afzalmasra@yao.com", password: "password"}
+    ])
+
