@@ -5,6 +5,7 @@ class MoviesController < ApplicationController
     end
   def create
     movie = Movie.new( {
+                        user_id: current_user.id,
                         name: params[:name],
                         summary: params[:summary],
                         actor: params[:actor],
@@ -27,6 +28,7 @@ class MoviesController < ApplicationController
   end
   def update
     movie = Movie.find(params[:id])
+    user = current_user.id
     movie.name = params[:name] || movie.name
     movie.summary = params[:summary] || movie.summary
     movie.actor = params[:actor] || movie.actor
@@ -38,6 +40,7 @@ class MoviesController < ApplicationController
  end 
  def destroy
    movie = Movie.find(params[:id])
+   user = current_user.id
    movie.destroy    
    render json: {message: "Successfully destroyed movie ##{movie.id}"}
  end
