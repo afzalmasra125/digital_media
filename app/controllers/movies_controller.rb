@@ -1,7 +1,14 @@
 class MoviesController < ApplicationController
+# before_action :authenticate_admin, only: [:create, :update, :destroy]
+
   def index
     movies = Movie.all
+    search_term = params[:search]
+    if search_term
+        movies = movies.where("name iLike ?", "%#{search_term}%")
+    end
     render json: movies.as_json
+
     end
   def create
     movie = Movie.new( {
@@ -25,6 +32,8 @@ class MoviesController < ApplicationController
   def show
     movies = Movie.find(params[:id])
     render json: movies.as_json
+
+
   end
   def update
     movie = Movie.find(params[:id])
