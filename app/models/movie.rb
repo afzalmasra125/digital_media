@@ -1,5 +1,5 @@
 class Movie < ApplicationRecord
   has_many :images
-  belongs_to :users through: :watchlists
+  has_many :users, through: :watchlist
  # has_many :watchlists through: :users
 end

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
    post '/users' => 'users#create'
 
+   get '/watchlists' => 'watchlists#index'
    post '/watchlists' => 'watchlists#create'
 end
 
