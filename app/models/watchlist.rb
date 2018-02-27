@@ -1,4 +1,4 @@
 class Watchlist < ApplicationRecord
-  belongs to :user
-  belongs to :movies
+  belongs_to :user
+  belongs_to :movie
 end

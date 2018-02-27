@@ -1,10 +1,12 @@
 class WatchlistsController < ApplicationController
   def create
-    wathclist = WatchList.new
-                    (
+    watchlist = Watchlist.new({
                       user_id: current_user.id,
                       movie_id: params[:movie_id]  
-                      )
-  watctlist.save
-  render json: watchlist.as_json
-end
+                      })
+    watchlist.save
+    p "******"
+    p watchlist.errors.full_messages
+    render json: watchlist.as_json
+  end
+end 
