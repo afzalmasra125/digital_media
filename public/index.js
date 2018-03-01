@@ -4,7 +4,8 @@ var MoviesIndexPage = {
   template: "#movies-index-page",
   data: function() {
     return {
-      movies:[]
+      movies:[],
+      images:[]
     };
   },
   created: function() {
@@ -12,11 +13,62 @@ var MoviesIndexPage = {
       .then(function(response) {
         this.movies = response.data;
       }.bind(this));
+      axios.get("/images")
+      .then(function(response) {
+         this.images = response.data;
+          }.bind(this));
   },
   methods: {},
   computed: {}
 };
-
+var MoviesShowPage = {
+  template: "#movies-show-page",
+  data: function() {
+    return {
+     movie:[]
+      };
+  },
+  created: function() {
+    axios.get("/movies/" + this.$route.params.id)
+      .then(function(response) {
+        this.movie = response.data;
+      }.bind(this));
+       },
+  methods: {},
+  computed: {}
+};
+var WatchlistIndexPage = {
+template: "#watchlist-index-page",
+  data: function() {
+    return {
+      watchlists:[]
+         };
+  },created: function() {
+    axios.get("/watchlist")
+      .then(function(response) {
+        this.watchlist = response.data;
+      }.bind(this));
+  },
+  methods: {},
+  computed: {}
+};
+var WatchNewPage = {
+template: "#watchlist-new-page",
+  data: function() {
+    return {
+      watchlist:[]
+         };
+  },
+      created: function() {
+    axios.post("/watchlists/")
+     .then(function(response) {
+          router.push("/");
+      this.watchlists = response.data;
+      }.bind(this));
+  },
+  methods: {},
+  computed: {}
+};
 var SignupPage = {
   template: "#signup-page",
   data: function() {
@@ -93,6 +145,10 @@ var router = new VueRouter({
   routes: [
     { path: "/", component: MoviesIndexPage },
     { path: "/movies", component: MoviesIndexPage },
+    { path: "/images", component: MoviesIndexPage },
+    { path: "/movies/:id", component: MoviesShowPage },
+    { path: "/watchlist", component: WatchlistIndexPage },
+    { path: "/watchlist/new", component: WatchNewPage },
     { path: "/signup", component: SignupPage },
     { path: "/login", component: LoginPage },
     { path: "/logout", component: LogoutPage }

@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
    get '/watchlists' => 'watchlists#index'
    post '/watchlists' => 'watchlists#create'
+   
+   get '/images' => 'images#index'
 end
 
 
