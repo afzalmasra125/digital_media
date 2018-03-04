@@ -4,8 +4,7 @@ var MoviesIndexPage = {
   template: "#movies-index-page",
   data: function() {
     return {
-      movies:[],
-      images:[]
+      movies:[]
     };
   },
   created: function() {
@@ -13,10 +12,6 @@ var MoviesIndexPage = {
       .then(function(response) {
         this.movies = response.data;
       }.bind(this));
-      axios.get("/images")
-      .then(function(response) {
-         this.images = response.data;
-          }.bind(this));
   },
   methods: {},
   computed: {}
@@ -145,14 +140,12 @@ var router = new VueRouter({
   routes: [
     { path: "/", component: MoviesIndexPage },
     { path: "/movies", component: MoviesIndexPage },
-    { path: "/images", component: MoviesIndexPage },
     { path: "/movies/:id", component: MoviesShowPage },
     { path: "/watchlist", component: WatchlistIndexPage },
     { path: "/watchlist/new", component: WatchNewPage },
     { path: "/signup", component: SignupPage },
     { path: "/login", component: LoginPage },
     { path: "/logout", component: LogoutPage }
-
   ],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };

@@ -53,21 +53,20 @@
     <div class ="row">
       <div id="carouselExampleIndicators" class="carousel slide" 
     data-ride="carousel">
-    <div class ="container">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <li data-target="#carouselExampleIndicators1" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators2" data-slide-to="2"></li>
   </ol>
   <div class="carousel-inner" role="listbox">
     <div class="carousel-item active">
       <img class="d-block img-fluid" src="https://www.flixist.com//ul/219248-fake-22-jump-street-posters-are-canon-in-23-jump-street/29jumpstreet-noscale.jpg" alt="First slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block img-fluid" src="http://www.dirtyandthirty.com/wp-content/uploads/2017/10/digitalmedia-1.jpg" alt="Second slide">
+      <img class="d-block img-fluid" src="https://www.flixist.com//ul/219248-fake-22-jump-street-posters-are-canon-in-23-jump-street/29jumpstreet-noscale.jpg" alt="Second slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block img-fluid" src="..." alt="Third slide">
+      <img class="d-block img-fluid" src= "https://www.flixist.com//ul/219248-fake-22-jump-street-posters-are-canon-in-23-jump-street/29jumpstreet-noscale.jpg" alt="Third slide">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -78,29 +77,32 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
+  </div>
 </div>
-</div>
-      <div v-for="movie in movies" class="col-md-4">
+      <div class ="row">
         <div class="card-body">
-         <div class="class mb-5"> 
-          <!-- <div v-for="image in images"> -->
-          <img v-bind:src="images.image_url" alt="">
+           <div v-for="movie in movies" class="col-md-5">
+            <div class ="card md-4">
+            <div v-for="image in movie.images" >
+              <img class = "card-img-top" v-bind:src="image.image_url" alt="">
           <h2>{{movie.name}}</h2>
-          <p class="card-text">{{movie.genre}}</p>
+          <p class="card-text">Genre:- {{movie.genre}}</p>
+          <p>Actors:- {{movie.actor}}</p>
+          <p>Plot:- {{movie.summary}}</p>
         <a v-bind:href=" '/#/movies/'" class="btn btn-primary float-right">Add to Watchlist</a>
         <a v-bind:href="'/#/movies/' + movie.id" class="btn btn-danger float-left">View More Details</a>
-         </div>
-        </div>
       </div>
-      </div>
-    </div>
+   </div>
    </div>
 </template>
 <template id="movies-show-page">
   <div class="vue-component">
     <div class ="container">
+      <div v-for="image in movie.images" >
+              <img class = "card-img-top" v-bind:src="image.image_url" alt="">
        <h2>{{movie.name}}</h2>
        <p>{{movie.summary}}</p>
+     </div>
       </div>
     </div>
 </template>
@@ -115,7 +117,6 @@
           <h2>{{watchlist.name}}</h2>
           <p class="card-text">{{watchlist.genre}}</p>
 </template>
-
 
 
 <!-- <!Authoriation Templates --> 
