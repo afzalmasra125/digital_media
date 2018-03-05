@@ -50,7 +50,6 @@
 <template id="movies-index-page">
  <div class="vue-component">
   <div class ="container">
-    <div class ="row">
       <div id="carouselExampleIndicators" class="carousel slide" 
     data-ride="carousel">
   <ol class="carousel-indicators">
@@ -80,28 +79,32 @@
   </div>
 </div>
       <div class ="row">
-        <div class="card-body">
-           <div v-for="movie in movies" class="col-md-5">
+           <div v-for="movie in movies" class="col-md-4">
             <div class ="card md-4">
             <div v-for="image in movie.images" >
               <img class = "card-img-top" v-bind:src="image.image_url" alt="">
+            <div class="card-body">
           <h2>{{movie.name}}</h2>
           <p class="card-text">Genre:- {{movie.genre}}</p>
           <p>Actors:- {{movie.actor}}</p>
           <p>Plot:- {{movie.summary}}</p>
         <a v-bind:href=" '/#/movies/'" class="btn btn-primary float-right">Add to Watchlist</a>
         <a v-bind:href="'/#/movies/' + movie.id" class="btn btn-danger float-left">View More Details</a>
+          </div>
+        </div>
       </div>
-   </div>
-   </div>
+      </div>
+    </div>
+  </div>
 </template>
 <template id="movies-show-page">
   <div class="vue-component">
     <div class ="container">
-      <div v-for="image in movie.images" >
+      <div v-for="image in movie.images" class="col-md-6"> 
               <img class = "card-img-top" v-bind:src="image.image_url" alt="">
        <h2>{{movie.name}}</h2>
        <p>{{movie.summary}}</p>
+        <a v-bind:href=" '/#/movies/'" class="btn btn-primary float-right">Add to Watchlist</a>
      </div>
       </div>
     </div>
