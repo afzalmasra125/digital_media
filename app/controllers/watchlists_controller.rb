@@ -1,7 +1,7 @@
 class WatchlistsController < ApplicationController
     def index
-    watchlist = Watchlist.all
-    render json: watchlist.as_json
+    @watchlists = Watchlist.all
+    render 'index.json.jbuilder'
   end
   def create
     watchlist = Watchlist.new({

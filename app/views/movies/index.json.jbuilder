@@ -1,4 +1,4 @@
-  json.array! @movies.each do |movie|
+   json.array!@movies.each do |movie|
   json.id movie.id
   json.name movie.name
   json.summary movie.summary

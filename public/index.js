@@ -96,6 +96,16 @@ var SignupPage = {
     }
   }
   };
+  var PlayerIndexPage = {
+    template: "#player-index-page",
+    data: function() {
+    return {
+    };
+  },
+  created: function() {
+     axios.get("/player")
+     }
+  };
 var LoginPage = {
   template: "#login-page",
   data: function() {
@@ -145,7 +155,8 @@ var router = new VueRouter({
     { path: "/watchlist/new", component: WatchNewPage },
     { path: "/signup", component: SignupPage },
     { path: "/login", component: LoginPage },
-    { path: "/logout", component: LogoutPage }
+    { path: "/logout", component: LogoutPage },
+    {path: "/player", component: PlayerIndexPage}
   ],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };
