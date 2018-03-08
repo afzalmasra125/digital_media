@@ -26,4 +26,4 @@
 
 # Image.create!([ {image_url: "https://i.pinimg.com/originals/b7/97/d9/b797d9b53f1c52866976ec2ea6a53229.jpg", movie_id: "1"}  ])
 
-Image.create!([ {image_url: "http://www.minority-review.com/wp-content/uploads/2012/04/21-jump-street-poster__span.jpg", movie_id: "5"}  ])
+Image.create!([ {image_url: "http://www.minority-review.com/wp-content/uploads/2012/04/21-jump-street-poster__span.jpg", movie_id: "5"}  .

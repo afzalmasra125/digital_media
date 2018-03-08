@@ -39,9 +39,10 @@ template: "#watchlist-index-page",
       watchlists:[]
          };
   },created: function() {
-    axios.get("/watchlist")
+    axios.get("/watchlists")
       .then(function(response) {
-        this.watchlist = response.data;
+        this.watchlists = response.data;
+        console.log(this.watchlists);
       }.bind(this));
   },
   methods: {},
