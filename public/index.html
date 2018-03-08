@@ -81,12 +81,12 @@
 </div>
       <div class ="row">
            <div v-for="movie in movies" class="col-md-4">
-            <div class ="card md-4">
+            <div class ="card md-12">
             <div v-for="image in movie.images" >
               <img class = "card-img-top" v-bind:src="image.image_url" alt="">
             <div class="card-body">
           <h2>{{movie.name}}</h2>
-          <p class="card-text">Genre:- {{movie.genre}}</p>
+          <p>Genre:- {{movie.genre}}</p>
           <p>Actors:- {{movie.actor}}</p>
           <p>Plot:- {{movie.summary}}</p>
         <a v-bind:href=" '/#/movies/'" class="btn btn-primary float-right">Add to Watchlist</a>
@@ -101,27 +101,45 @@
 <template id="movies-show-page">
   <div class="vue-component">
     <div class ="container">
-      <div v-for="image in movie.images" class="col-md-6"> 
+      <div v-for="image in movie.images" class="col-md-8"> 
+        <div class ="card md-12">
               <img class = "card-img-top" v-bind:src="image.image_url" alt="">
+              <div class="card-body">
        <h2>{{movie.name}}</h2>
-       <p>{{movie.summary}}</p>
-        <a v-bind:href=" '/#/movies/'" class="btn btn-primary float-right">Add to Watchlist</a>
-        <a v-bind:href=" '/#/player'" class="btn btn-secondary float-right">Play</a>
-     </div>
+       <p>Genre:- {{movie.genre}}</p>
+       <p>Rating:- {{movie.rating}}/10<p>
+        <p>Actor:- {{movie.actor}}</p>
+       <p>Plot:-  {{movie.summary}}</p>
+        <a v-bind:href=" '/#/movies/'" class="btn btn-primary float">Add to Watchlist</a>
+        <a v-bind:href=" '/#/player/'" class="btn btn-secondary float">Play</a>
+            </div>
+           </div>
+         </div>
+        </div>
       </div>
     </div>
 </template>
-
 <template id="watchlist-index-page">
 <div class="vue-component">
   <div class ="container">
     <div class ="row">
       <div v-for="watchlist in watchlists" class="col-md-4">
-        <div class="card-body">
-         <div class="class mb-5"> 
+         <div class ="card md-4">
+      <div v-for="image in watchlist.images" >
+              <img class = "card-img-top" v-bind:src="image.image_url" alt="">
+            <div class="card-body">
           <h2>{{watchlist.name}}</h2>
-          <p class="card-text">{{watchlist.genre}}</p>
-</template>
+          <p>{{watchlist.genre}}</p>
+          <p>{{watchlist.actor}}</p>
+          <p>{{watchlist.summary}}</p>
+           <a v-bind:href=" '/#/player'" class="btn btn-secondary float-right">Play</a>
+          <a v-bind:href="'/#/movies/' + watchlist.id" class="btn btn-danger float-left">View More Details</a>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+    </template>
 <!-- <!Authoriation Templates --> 
 
 <template id="signup-page">
@@ -174,3 +192,14 @@
   </div>
 </template>
 
+  <template id="player-index-page">
+<video id="my-video" class="video-js" controls preload="auto" width="640" height="264"
+  poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
+    <source src=http://techslides.com/demos/sample-videos/small.mp4 type=video/mp4>
+    <source src=http://techslides.com/demos/sample-videos/small.webm type=video/webm>
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a web browser that
+      <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+    </p>
+  </video>
+  </template>

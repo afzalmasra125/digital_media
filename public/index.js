@@ -42,7 +42,6 @@ template: "#watchlist-index-page",
     axios.get("/watchlists")
       .then(function(response) {
         this.watchlists = response.data;
-        console.log(this.watchlists);
       }.bind(this));
   },
   methods: {},
