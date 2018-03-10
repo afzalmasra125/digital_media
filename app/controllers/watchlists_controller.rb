@@ -1,7 +1,7 @@
 class WatchlistsController < ApplicationController
    def index
-     # @movies = current_user.movies
-     @movies = User.find(3).movies
+     @movies = current_user.movies
+     # @movies = User.find(3).movies
      render 'index.json.jbuilder'
   end
   def create
