@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>One Movies an Entertainment Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+<title>One Movies an Entertainment Category Flat Bootstrap Responsive Website Template | Contact :: w3layouts</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -18,40 +18,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //for-mobile-apps -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<link rel="stylesheet" href="css/contactstyle.css" type="text/css" media="all" />
 <link rel="stylesheet" href="css/faqstyle.css" type="text/css" media="all" />
-<link href="css/single.css" rel='stylesheet' type='text/css' />
 <link href="css/medile.css" rel='stylesheet' type='text/css' />
-<!-- banner-slider -->
-<link href="css/jquery.slidey.min.css" rel="stylesheet">
-<!-- //banner-slider -->
-<!-- pop-up -->
-<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
-<!-- //pop-up -->
+<link href="css/single.css" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="css/contactstyle.css" type="text/css" media="all" />
 <!-- font-awesome icons -->
 <link rel="stylesheet" href="css/font-awesome.min.css" />
 <!-- //font-awesome icons -->
 <!-- js -->
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <!-- //js -->
-<!-- banner-bottom-plugin -->
-<link href="css/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
-<script src="js/owl.carousel.js"></script>
-<script>
-	$(document).ready(function() { 
-		$("#owl-demo").owlCarousel({
-	 
-		  autoPlay: 3000, //Set AutoPlay to 3 seconds
-	 
-		  items : 5,
-		  itemsDesktop : [640,4],
-		  itemsDesktopSmall : [414,3]
-	 
-		});
-	 
-	}); 
-</script> 
-<!-- //banner-bottom-plugin -->
 <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300' rel='stylesheet' type='text/css'>
 <!-- start-smoth-scrolling -->
 <script type="text/javascript" src="js/move-top.js"></script>
@@ -64,11 +40,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 	});
 </script>
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
-  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
-  <script src="https://unpkg.com/axios/dist/axios.js"></script>
-  <script src="//vjs.zencdn.net/5.4.6/video.min.js"></script>
-  <script src="index.js" defer></script>
 <!-- start-smoth-scrolling -->
 </head>
 	
@@ -87,6 +58,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="w3l_sign_in_register">
 				<ul>
+					<li><i class="fa fa-phone" aria-hidden="true"></i> (+000) 123 345 653</li>
 					<li><a href="#" data-toggle="modal" data-target="#myModal">Login</a></li>
 				</ul>
 			</div>
@@ -165,17 +137,50 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
 					<nav>
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="index.html">Home</a></li>
+							<li class="w3_home_act"><a href="index.html">Home</a></li>
 							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Genres <b class="caret"></b></a>
 								<ul class="dropdown-menu multi-column columns-3">
 									<li>
-									<div class="clearfix"></div>
+										<div class="col-sm-4">
+											<ul class="multi-column-dropdown">
+												<li><a href="genres.html">Action</a></li>
+												<li><a href="genres.html">Biography</a></li>
+												<li><a href="genres.html">Crime</a></li>
+												<li><a href="genres.html">Family</a></li>
+												<li><a href="horror.html">Horror</a></li>
+												<li><a href="genres.html">Romance</a></li>
+												<li><a href="genres.html">Sports</a></li>
+												<li><a href="genres.html">War</a></li>
+											</ul>
+										</div>
+										<div class="col-sm-4">
+											<ul class="multi-column-dropdown">
+												<li><a href="genres.html">Adventure</a></li>
+												<li><a href="comedy.html">Comedy</a></li>
+												<li><a href="genres.html">Documentary</a></li>
+												<li><a href="genres.html">Fantasy</a></li>
+												<li><a href="genres.html">Thriller</a></li>
+											</ul>
+										</div>
+										<div class="col-sm-4">
+											<ul class="multi-column-dropdown">
+												<li><a href="genres.html">Animation</a></li>
+												<li><a href="genres.html">Costume</a></li>
+												<li><a href="genres.html">Drama</a></li>
+												<li><a href="genres.html">History</a></li>
+												<li><a href="genres.html">Musical</a></li>
+												<li><a href="genres.html">Psychological</a></li>
+											</ul>
+										</div>
+										<div class="clearfix"></div>
 									</li>
 								</ul>
 							</li>
-							<li><a href="/#/watchlist">Watchlist</a></li>
-						
+							<li><a href="series.html">tv - series</a></li>
+							<li><a href="news.html">news</a></li>
 							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Country <b class="caret"></b></a>
 								<ul class="dropdown-menu multi-column columns-3">
 									<li>
 										<div class="col-sm-4">
@@ -215,28 +220,93 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 <!-- //nav -->
-<!-- banner -->
-	<div id="slidey" style="display:none;">
+<div class="general_social_icons">
+	<nav class="social">
 		<ul>
-			<li><img src="images/5.jpg" alt=" "><p class='title'>Tarzan</p><p class='description'> Tarzan, having acclimated to life in London, is called back to his former home in the jungle to investigate the activities at a mining encampment.</p></li>
-			<li><img src="images/2.jpg" alt=" "><p class='title'>Maximum Ride</p><p class='description'>Six children, genetically cross-bred with avian DNA, take flight around the country to discover their origins. Along the way, their mysterious past is ...</p></li>
-			<li><img src="images/3.jpg" alt=" "><p class='title'>Independence</p><p class='description'>The fate of humanity hangs in the balance as the U.S. President and citizens decide if these aliens are to be trusted ...or feared.</p></li>
-			<li><img src="images/4.jpg" alt=" "><p class='title'>Central Intelligence</p><p class='description'>Bullied as a teen for being overweight, Bob Stone (Dwayne Johnson) shows up to his high school reunion looking fit and muscular. Claiming to be on a top-secret ...</p></li>
-			<li><img src="images/6.jpg" alt=" "><p class='title'>Ice Age</p><p class='description'>In the film's epilogue, Scrat keeps struggling to control the alien ship until it crashes on Mars, destroying all life on the planet.</p></li>
-			<li><img src="images/7.jpg" alt=" "><p class='title'>X - Man</p><p class='description'>In 1977, paranormal investigators Ed (Patrick Wilson) and Lorraine Warren come out of a self-imposed sabbatical to travel to Enfield, a borough in north ...</p></li>
-		</ul>   	
-    </div>
-    <script src="js/jquery.slidey.js"></script>
-    <script src="js/jquery.dotdotdot.min.js"></script>
-	   <script type="text/javascript">
-			$("#slidey").slidey({
-				interval: 8000,
-				listCount: 5,
-				autoplay: false,
-				showList: true
-			});
-			$(".slidey-list-description").dotdotdot();
-		</script>
+			<li class="w3_twitter"><a href="#">Twitter <i class="fa fa-twitter"></i></a></li>
+			<li class="w3_facebook"><a href="#">Facebook <i class="fa fa-facebook"></i></a></li>
+			<li class="w3_dribbble"><a href="#">Dribbble <i class="fa fa-dribbble"></i></a></li>
+			<li class="w3_g_plus"><a href="#">Google+ <i class="fa fa-google-plus"></i></a></li>				  
+		</ul>
+  </nav>
+</div>
+<!-- contact -->
+	<div class="contact-agile">
+		<div id="map"></div>
+		<div class="faq">
+			<h4 class="latest-text w3_latest_text">Contact Us</h4>
+			<div class="container">
+				<div class="col-md-3 location-agileinfo">
+					<div class="icon-w3">
+						<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+					</div>
+					<h3>Address</h3>
+					<h4>345 Setwant natrer,</h4>
+					<h4>Washington,</h4>
+					<h4>United States.</h4>
+				</div>
+				<div class="col-md-3 call-agileits">
+					<div class="icon-w3">
+						<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+					</div>
+					<h3>Call</h3>
+					<h4>+18044126235</h4>
+					<h4>+14056489808</h4>
+					<h4>+16789339049</h4>
+				</div>
+				<div class="col-md-3 mail-wthree">
+					<div class="icon-w3">
+						<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+					</div>
+					<h3>Email</h3>
+					<h4><a href="mailto:info@example.com">example1@mail.com</a></h4>
+					<h4><a href="mailto:info@example.com">example2@mail.com</a></h4>
+					<h4><a href="mailto:info@example.com">example3@mail.com</a></h4>
+				</div>
+				<div class="col-md-3 social-w3l">
+					<div class="icon-w3">
+						<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+					</div>
+					<h3>Social media</h3>
+					<ul>
+						<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i><span class="text">Facebook</span></a></li>
+						<li class="twt"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i><span class="text">Twitter</span></a></li>
+						<li class="ggp"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i><span class="text">Google+</span></a></li>	
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+				<form action="#" method="post">
+					<input type="text" name="your name" placeholder="FIRST NAME" required="">
+					<input type="text" name="your name" placeholder="LAST NAME" required="">
+					<input type="text" name="your email" placeholder="EMAIL" required="">
+					<input type="text" name="subject" placeholder="SUBJECT" required="">
+					<textarea  name="your message" placeholder="YOUR MESSAGE" required=""></textarea>
+					<input type="submit" value="SEND MESSAGE">
+				</form>
+			</div>
+		</div>
+	</div>
+				<!-- Map-JavaScript -->
+			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>        
+			<script type="text/javascript">
+				google.maps.event.addDomListener(window, 'load', init);
+				function init() {
+					var mapOptions = {
+						zoom: 11,
+						center: new google.maps.LatLng(40.6700, -73.9400),
+						styles: [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#000000"},{"lightness":40}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#000000"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":17},{"weight":1.2}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":21}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":16}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":17}]}]
+					};
+					var mapElement = document.getElementById('map');
+					var map = new google.maps.Map(mapElement, mapOptions);
+					var marker = new google.maps.Marker({
+						position: new google.maps.LatLng(40.6700, -73.9400),
+						map: map,
+					});
+				}
+			</script>
+		<!-- //Map-JavaScript -->
+<!-- //contact -->
+<!-- footer -->
 	<div class="footer">
 		<div class="container">
 			<div class="w3ls_footer_grid">
@@ -288,8 +358,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 <!-- //footer -->
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
 <script>
 $(document).ready(function(){
     $(".dropdown").hover(            
@@ -306,149 +374,21 @@ $(document).ready(function(){
 </script>
 <!-- //Bootstrap Core JavaScript -->
 <!-- here stars scrolling icon -->
-	<script type="text/javascript">
-		$(document).ready(function() {
-			/*
-				var defaults = {
-				containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear' 
-				};
-			*/
-								
-			$().UItoTop({ easingType: 'easeOutQuart' });
-								
-			});
-	</script>
-<!-- //here ends scrolling icon -->
+<script type="text/javascript">
+	$(document).ready(function() {
+		/*
+			var defaults = {
+			containerID: 'toTop', // fading element id
+			containerHoverID: 'toTopHover', // fading element hover id
+			scrollSpeed: 1200,
+			easingType: 'linear' 
+			};
+		*/
+							
+		$().UItoTop({ easingType: 'easeOutQuart' });
+							
+		});
+</script>
+<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
-
-<template id="movies-index-page">
- <div class="vue-component">
-  <div class ="container">
-      <div class ="row">
-           <div v-for="movie in movies" class="col-md-4">
-            <div class ="card md-12">
-            <div v-for="image in movie.images" >
-              <img class = "card-img-top" v-bind:src="image.image_url" alt="">
-            <div class="card-body">
-          <h2>{{movie.name}}</h2>
-          <p>Genre:- {{movie.genre}}</p>
-          <p>Actors:- {{movie.actor}}</p>
-          <p>Plot:- {{movie.summary}}</p>
-        <a v-bind:href=" '/#/movies/'" class="btn btn-primary float-right">Add to Watchlist</a>
-        <a v-bind:href="'/#/movies/' + movie.id" class="btn btn-danger float-left">View More Details</a>
-          </div>
-        </div>
-      </div>
-      </div>
-    </div>
-  </div>
-</template>
-<template id="movies-show-page">
-  <div class="vue-component">
-    <div class ="container">
-      <div v-for="image in movie.images" class="col-md-8"> 
-        <div class ="card md-12">
-              <img class = "card-img-top" v-bind:src="image.image_url" alt="">
-              <div class="card-body">
-       <h2>{{movie.name}}</h2>
-       <p>Genre:- {{movie.genre}}</p>
-       <p>Rating:- {{movie.rating}}/10<p>
-        <p>Actor:- {{movie.actor}}</p>
-       <p>Plot:-  {{movie.summary}}</p>
-        <a v-bind:href=" '/#/movies/'" class="btn btn-primary float">Add to Watchlist</a>
-        <a v-bind:href=" '/#/player/'" class="btn btn-secondary float">Play</a>
-            </div>
-           </div>
-         </div>
-        </div>
-      </div>
-    </div>
-</template>
-<template id="watchlist-index-page">
-<div class="vue-component">
-  <div class ="container">
-    <div class ="row">
-      <div v-for="watchlist in watchlists" class="col-md-4">
-         <div class ="card md-4">
-      <div v-for="image in watchlist.images" >
-              <img class = "card-img-top" v-bind:src="image.image_url" alt="">c
-            <div class="card-body">
-          <h2>{{watchlist.name}}</h2>
-          <p>{{watchlist.genre}}</p>
-          <p>{{watchlist.actor}}</p>
-          <p>{{watchlist.summary}}</p>
-           <a v-bind:href=" '/#/player'" class="btn btn-secondary float-right">Play</a>
-          <a v-bind:href="'/#/movies/' + watchlist.id" class="btn btn-danger float-left">View More Details</a>
-        </div>
-      </div>
-      </div>
-    </div>
-  </div>
-    </template>
-<!-- <!Authoriation Templates --> 
-
-<template id="signup-page">
-  <div class="vue-component">
-    <div class="container">
-      <h1>Signup</h1>
-      <ul>
-        <li class="text-danger" v-for="error in errors">{{ error }}</li>
-      </ul>
-      <div class="form-group">
-        <label>Name:</label> 
-        <input type="text" class="form-control" v-model="name">
-      </div>
-      <div class="form-group">
-        <label>Email:</label>
-        <input type="email" class="form-control" v-model="email">
-      </div>
-      <div class="form-group">
-        <label>Password:</label>
-        <input type="password" class="form-control" v-model="password">
-      </div>
-      <div class="form-group">
-        <label>Password confirmation:</label>
-        <input type="password" class="form-control" v-model="passwordConfirmation">
-      </div>
-      <button class="btn btn-primary" v-on:click="submit()">Submit</button>
-    </div>
-  </div>
-</template>
-
-<template id="login-page">
-  <div class="vue-component">
-
-    <div class="container">
-      <h1>Login</h1>
-      <ul>
-        <li class="text-danger" v-for="error in errors">{{ error }}</li>
-      </ul>
-      <div class="form-group">
-        <label>Email:</label>
-        <input type="email" class="form-control" v-model="email">
-      </div>
-      <div class="form-group">
-        <label>Password:</label>
-        <input type="password" class="form-control" v-model="password">
-      </div>
-      <button class="btn btn-primary" v-on:click="submit()">Submit</button>
-    </div>
-
-  </div>
-</template>
-
-  <template id="player-index-page">
-<video id="my-video" class="video-js" controls preload="auto" width="640" height="264"
-  poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
-    <source src=http://techslides.com/demos/sample-videos/small.mp4 type=video/mp4>
-    <source src=http://techslides.com/demos/sample-videos/small.webm type=video/webm>
-    <p class="vjs-no-js">
-      To view this video please enable JavaScript, and consider upgrading to a web browser that
-      <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-    </p>
-  </video>
-  </template>
