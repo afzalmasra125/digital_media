@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>One Movies an Entertainment Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+<title>Digital Media</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -73,11 +73,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 	
 <body>
+  <div id="vue-app">
+    
 <!-- header -->
 	<div class="header">
 		<div class="container">
 			<div class="w3layouts_logo">
-				<a href="index.html"><h1>One<span>Movies</span></h1></a>
+				<a href="/movies"><h1>One<span>Movies</span></h1></a>
 			</div>
 			<div class="w3_search">
 				<form action="#" method="post">
@@ -87,7 +89,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="w3l_sign_in_register">
 				<ul>
-					<li><a href="#" data-toggle="modal" data-target="#myModal">Login</a></li>
+					<li><a href="#/login/" data-toggle="modal" data-target="#myModal">Login</a></li>
 				</ul>
 			</div>
 			<div class="clearfix"> </div>
@@ -111,7 +113,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							  </div>
 							  <div class="form">
 								<h3>Login to your account</h3>
-								<form action="#" method="post">
+								<form action="#/movies/" method="post">
 								  <input type="text" name="Username" placeholder="Username" required="">
 								  <input type="password" name="Password" placeholder="Password" required="">
 								  <input type="submit" value="Login">
@@ -135,19 +137,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 	</div>
-	<script>
-		$('.toggle').click(function(){
-		  // Switches the Icon
-		  $(this).children('i').toggleClass('fa-pencil');
-		  // Switches the forms  
-		  $('.form').animate({
-			height: "toggle",
-			'padding-top': 'toggle',
-			'padding-bottom': 'toggle',
-			opacity: "toggle"
-		  }, "slow");
-		});
-	</script>
+
 <!-- //bootstrap-pop-up -->
 <!-- nav -->
 	<div class="movies_nav">
@@ -165,7 +155,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
 					<nav>
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="index.html">Home</a></li>
+							<li class="active"><a href="/#/movies">Home</a></li>
 							<li class="dropdown">
 								<ul class="dropdown-menu multi-column columns-3">
 									<li>
@@ -214,6 +204,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</nav>	
 		</div>
 	</div>
+
+   <router-view></router-view>
 <!-- //nav -->
 <!-- banner -->
 	<div id="slidey" style="display:none;">
@@ -226,17 +218,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<li><img src="images/7.jpg" alt=" "><p class='title'>X - Man</p><p class='description'>In 1977, paranormal investigators Ed (Patrick Wilson) and Lorraine Warren come out of a self-imposed sabbatical to travel to Enfield, a borough in north ...</p></li>
 		</ul>   	
     </div>
-    <script src="js/jquery.slidey.js"></script>
-    <script src="js/jquery.dotdotdot.min.js"></script>
-	   <script type="text/javascript">
-			$("#slidey").slidey({
-				interval: 8000,
-				listCount: 5,
-				autoplay: false,
-				showList: true
-			});
-			$(".slidey-list-description").dotdotdot();
-		</script>
+    
 	<div class="footer">
 		<div class="container">
 			<div class="w3ls_footer_grid">
@@ -257,7 +239,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="clearfix"> </div>
 			</div>
 			<div class="col-md-5 w3ls_footer_grid1_left">
-				<p>&copy; 2016 One Movies. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+				<p>&copy; 2016 Digital media. All rights reserved </p>
 			</div>
 			<div class="col-md-7 w3ls_footer_grid1_right">
 				<ul>
@@ -287,6 +269,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="clearfix"> </div>
 		</div>
 	</div>
+  </div>
+
+  <script>
+    $('.toggle').click(function(){
+      // Switches the Icon
+      $(this).children('i').toggleClass('fa-pencil');
+      // Switches the forms  
+      $('.form').animate({
+      height: "toggle",
+      'padding-top': 'toggle',
+      'padding-bottom': 'toggle',
+      opacity: "toggle"
+      }, "slow");
+    });
+  </script>
 <!-- //footer -->
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
@@ -324,15 +321,14 @@ $(document).ready(function(){
 <!-- //here ends scrolling icon -->
 </body>
 </html>
-
 <template id="movies-index-page">
  <div class="vue-component">
   <div class ="container">
       <div class ="row">
            <div v-for="movie in movies" class="col-md-4">
             <div class ="card md-12">
-            <div v-for="image in movie.images" >
-              <img class = "card-img-top" v-bind:src="image.image_url" alt="">
+            <!-- <div v-for="image in movie.images" >
+              <img class = "card-img-top" v-bind:src="image.image_url" alt=""> -->
             <div class="card-body">
           <h2>{{movie.name}}</h2>
           <p>Genre:- {{movie.genre}}</p>
