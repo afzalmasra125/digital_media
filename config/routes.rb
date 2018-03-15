@@ -12,7 +12,7 @@ Rails.application.routes.draw do
    post '/watchlists' => 'watchlists#create'
    
    get '/images' => 'images#index'
-   get '/player' => 'player#index'
+   get '/youtubeplayer' => 'player#index'
 end
 
 

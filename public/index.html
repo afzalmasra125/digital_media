@@ -79,7 +79,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="header">
 		<div class="container">
 			<div class="w3layouts_logo">
-				<a href="/movies"><h1>One<span>Movies</span></h1></a>
+				<a href="/#/movies"><h1>Digital<span>Media</span></h1></a>
 			</div>
 			<div class="w3_search">
 				<form action="#" method="post">
@@ -89,54 +89,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="w3l_sign_in_register">
 				<ul>
-					<li><a href="" data-toggle="modal" data-target="#myModal">Login</a></li>
+          <li><a href="/#/login/"> Login </a></li>
 				</ul>
 			</div>
 			<div class="clearfix"> </div>
 		</div>
 	</div>
 <!-- //header -->
-<!-- bootstrap-pop-up -->
-	<div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					Sign In & Sign Up
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-				</div>
-				<section>
-					<div class="modal-body">
-						<div class="w3_login_module">
-							<div class="module form-module">
-							  <div class="toggle"><i class="fa fa-times fa-pencil"></i>
-								<div class="tooltip">Click Me</div>
-							  </div>
-							  <div class="form">
-								<h3>Login to your account</h3>
-								<form action="/login/" method="post">
-								  <input type="text" name="Username" placeholder="Username" required="">
-								  <input type="password" name="Password" placeholder="Password" required="">
-								  <input type="submit" value="Login">
-								</form>
-							  </div>
-							  <div class="form">
-								<h3>Create an account</h3>
-								<form action="#" method="post">
-								  <input type="text" name="Username" placeholder="Username" required="">
-								  <input type="password" name="Password" placeholder="Password" required="">
-								  <input type="email" name="Email" placeholder="Email Address" required="">
-								  <input type="text" name="Phone" placeholder="Phone Number" required="">
-								  <input type="submit" value="Register">
-								</form>
-							  </div>
-							  <div class="cta"><a href="#">Forgot your password?</a></div>
-							</div>
-						</div>
-					</div>
-				</section>
-			</div>
-		</div>
-	</div>
+
 
 <!-- //bootstrap-pop-up -->
 <!-- nav -->
@@ -234,7 +194,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</div>
 				<div class="col-md-6 w3ls_footer_grid_right">
-					<a href="index.html"><h2>One<span>Movies</span></h2></a>
+					<a href="index.html"><h2>Digital<span>Media</span></h2></a>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
@@ -325,10 +285,10 @@ $(document).ready(function(){
  <div class="vue-component">
   <div class ="container">
       <div class ="row">
-           <div v-for="movie in movies" class="col-md-4">
-            <div class ="card md-12">
-            <!-- <div v-for="image in movie.images" >
-              <img class = "card-img-top" v-bind:src="image.image_url" alt=""> -->
+        <div v-for="movie in movies" class="col-md-4">
+          <div class="card md-4">
+            <div v-for="image in movie.images">
+              <img class="images card-img-top" v-bind:src="image.image_url" alt="">
             <div class="card-body">
           <h2>{{movie.name}}</h2>
           <p>Genre:- {{movie.genre}}</p>
@@ -348,7 +308,7 @@ $(document).ready(function(){
     <div class ="container">
       <div v-for="image in movie.images" class="col-md-8"> 
         <div class ="card md-12">
-              <img class = "card-img-top" v-bind:src="image.image_url" alt="">
+              <img class ="images card-img-top" v-bind:src="image.image_url" alt="">
               <div class="card-body">
        <h2>{{movie.name}}</h2>
        <p>Genre:- {{movie.genre}}</p>
@@ -371,7 +331,7 @@ $(document).ready(function(){
       <div v-for="watchlist in watchlists" class="col-md-4">
          <div class ="card md-4">
       <div v-for="image in watchlist.images" >
-              <img class = "card-img-top" v-bind:src="image.image_url" alt="">c
+              <img class = "images card-img-top" v-bind:src="image.image_url" alt="">c
             <div class="card-body">
           <h2>{{watchlist.name}}</h2>
           <p>{{watchlist.genre}}</p>
@@ -438,13 +398,8 @@ $(document).ready(function(){
 </template>
 
   <template id="player-index-page">
-<video id="my-video" class="video-js" controls preload="auto" width="640" height="264"
-  poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
-    <source src=http://techslides.com/demos/sample-videos/small.mp4 type=video/mp4>
-    <source src=http://techslides.com/demos/sample-videos/small.webm type=video/webm>
-    <p class="vjs-no-js">
-      To view this video please enable JavaScript, and consider upgrading to a web browser that
-      <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-    </p>
+<iframe id="player" type="text/html" width="640" height="390"
+  src="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com"
+  frameborder="0"></iframe>
   </video>
   </template>
