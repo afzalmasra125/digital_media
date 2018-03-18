@@ -1,6 +1,5 @@
 class MoviesController < ApplicationController
 # before_action :authenticate_admin, only: [:create, :update, :destroy]
-
   def index
     @movies = Movie.all
     

@@ -12,6 +12,8 @@ Rails.application.routes.draw do
    post '/watchlists' => 'watchlists#create'
    
    get '/images' => 'images#index'
+
+   get '/collection' => 'movie_collections#index'
 end
 
 

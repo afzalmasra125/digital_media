@@ -64,6 +64,7 @@ template: "#watchlist-new-page",
   methods: {},
   computed: {}
 };
+
 var SignupPage = {
   template: "#signup-page",
   data: function() {
@@ -109,6 +110,22 @@ var SignupPage = {
         this.movie = response.data;
       }.bind(this));
        },
+  methods: {},
+  computed: {}
+};
+var BrowseIndexPage = {
+  template: "#browse-index-page",
+  data: function() {
+    return {
+      movies:[]
+    };
+  },
+  created: function() {
+    axios.get("/collection")
+      .then(function(response) {
+        this.movies = response.data;
+      }.bind(this));
+  },
   methods: {},
   computed: {}
 };
@@ -162,7 +179,8 @@ var router = new VueRouter({
     { path: "/signup", component: SignupPage },
     { path: "/login", component: LoginPage },
     { path: "/logout", component: LogoutPage },
-    {path: "/player/:id", component: PlayerShowPage}
+    {path: "/player/:id", component: PlayerShowPage},
+    {path:"/browse/", component: BrowseIndexPage}
   ],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };
