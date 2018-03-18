@@ -90,6 +90,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="w3l_sign_in_register">
 				<ul>
           <li><a href="/#/login/"> Login </a></li>
+          <li><a href="/#/signup/"> Sign Up </a></li>
 				</ul>
 			</div>
 			<div class="clearfix"> </div>
@@ -295,7 +296,7 @@ $(document).ready(function(){
           <p>Actors:- {{movie.actor}}</p>
           <p>Plot:- {{movie.summary}}</p>
         <a v-bind:href=" '/#/movies/'" class="btn btn-primary float-right">Add to Watchlist</a>
-        <a v-bind:href="'/#/movies/' + movie.id" class="btn btn-danger float-left">View More Details</a>
+        <a v-bind:href="'/#/movies/' + movie.id" class="btn btn-success float-left">View More Details</a>
           </div>
         </div>
       </div>
@@ -316,7 +317,7 @@ $(document).ready(function(){
         <p>Actor:- {{movie.actor}}</p>
        <p>Plot:-  {{movie.summary}}</p>
         <a v-bind:href=" '/#/movies/'" class="btn btn-primary float">Add to Watchlist</a>
-        <a v-bind:href=" '/#/player/'" class="btn btn-secondary float">Play</a>
+        <a v-bind:href=" '/#/player/' + movie.id" class="btn btn-danger float">Play</a>
             </div>
            </div>
          </div>
@@ -337,7 +338,7 @@ $(document).ready(function(){
           <p>{{watchlist.genre}}</p>
           <p>{{watchlist.actor}}</p>
           <p>{{watchlist.summary}}</p>
-           <a v-bind:href=" '/#/player'" class="btn btn-secondary float-right">Play</a>
+           <a v-bind:href=" '/#/player/'" class="btn btn-secondary float-right">Play</a>
           <a v-bind:href="'/#/movies/' + watchlist.id" class="btn btn-danger float-left">View More Details</a>
         </div>
       </div>
@@ -397,9 +398,10 @@ $(document).ready(function(){
   </div>
 </template>
 
-  <template id="player-index-page">
-<iframe id="player" type="text/html" width="640" height="390"
-  src="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com"
-  frameborder="0"></iframe>
+  <template id="player-show-page">
+    <div class="vue-component">
+<div style="position:relative;height:0;padding-bottom:52.71%"> <iframe v-bind:src= "movie.content_url" style="position:absolute;width:100%;height:100%;left:0" width="683" height="360" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+</div>
   </video>
   </template>
+

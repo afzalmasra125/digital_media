@@ -43,6 +43,7 @@ class MoviesController < ApplicationController
     movie.rating = params[:rating] || movie.rating
     movie.genre = params[:genre] || movie.genre
     movie.content_url = params[:content_url] || movie.content_url
+    movie.save
     render json: movie.as_json
   end 
  def destroy

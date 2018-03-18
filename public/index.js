@@ -20,7 +20,7 @@ var MoviesShowPage = {
   template: "#movies-show-page",
   data: function() {
     return {
-     movie:[]
+     movie:{}
       };
   },
   created: function() {
@@ -96,16 +96,22 @@ var SignupPage = {
     }
   }
   };
-  var PlayerIndexPage = {
-    template: "#player-index-page",
-    data: function() {
+  var PlayerShowPage = {
+    template: "#player-show-page",
+  data: function() {
     return {
-    };
+     movie: {}
+      };
   },
   created: function() {
-     axios.get("/player")
-     }
-  };
+    axios.get("/movies/" + this.$route.params.id)
+      .then(function(response) {
+        this.movie = response.data;
+      }.bind(this));
+       },
+  methods: {},
+  computed: {}
+};
 var LoginPage = {
   template: "#login-page",
   data: function() {
@@ -156,7 +162,7 @@ var router = new VueRouter({
     { path: "/signup", component: SignupPage },
     { path: "/login", component: LoginPage },
     { path: "/logout", component: LogoutPage },
-    {path: "/player", component: PlayerIndexPage}
+    {path: "/player/:id", component: PlayerShowPage}
   ],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };
