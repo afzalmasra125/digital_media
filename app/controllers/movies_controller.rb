@@ -27,8 +27,10 @@ class MoviesController < ApplicationController
         })
         image.save
         render json: movie.as_json
+      else
+          render json: {errors: @movies.errors.full_messages}, status: :unprocessable_entity
+      end
     end
-  end 
   def show
     @movie = Movie.find(params[:id])
     render 'show.json.jbuilder'
