@@ -20,6 +20,7 @@ gem 'jbuilder', '~> 2.5'
  gem 'bcrypt', '~> 3.1.7'
  gem 'knock'
  gem 'unirest'
+ gem "figaro"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

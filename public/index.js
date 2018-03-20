@@ -4,7 +4,8 @@ var MoviesIndexPage = {
   template: "#movies-index-page",
   data: function() {
     return {
-      movies:[]
+      movies:[],
+      watchlists:{}
     };
   },
   created: function() {
@@ -13,7 +14,22 @@ var MoviesIndexPage = {
         this.movies = response.data;
       }.bind(this));
   },
-  methods: {},
+  methods: {
+        submit: function(){
+          var params = {
+            name: this.name,
+            image_url: this.image_url,
+            actor: this.actor,
+            summary: this.summary,
+            genre: this.genre
+          };
+          axios.post("/watchlists/", params)
+          .then(function(response) {
+            router.push("/watchlist");
+            })
+          }.bind(this)
+
+  },
   computed: {}
 };
 var MoviesShowPage = {
@@ -47,23 +63,30 @@ template: "#watchlist-index-page",
   methods: {},
   computed: {}
 };
-var WatchNewPage = {
-template: "#watchlist-new-page",
-  data: function() {
-    return {
-      watchlist:[]
-         };
-  },
-      created: function() {
-    axios.post("/watchlists/")
-     .then(function(response) {
-          router.push("/");
-      this.watchlists = response.data;
-      }.bind(this));
-  },
-  methods: {},
-  computed: {}
-};
+// var WatchNewPage = {
+// template: "#watchlist-new-page",
+//   data: function() {
+//     return {
+//          watchlists:{}
+//          };
+//        },
+//        methods: {
+//         submit: function(){
+//           var params = {
+//             name: this.name,
+//             image_url: this.image_url,
+//             actor: this.actor,
+//             summary: this.summary,
+//             genre: this.genre
+//           };
+//           axios.post("/watchlists/", params)
+//           .then(function(response) {
+//             router.push("/");
+//             })
+//           }.bind(this)
+//           // computed: {}
+//        }
+// };
 
 var SignupPage = {
   template: "#signup-page",
@@ -129,6 +152,24 @@ var BrowseIndexPage = {
   methods: {},
   computed: {}
 };
+var TVShowsIndexPage = {
+  template: "#tvshows-index-page",
+  data: function() {
+    return {
+      tvshows:[]
+    };
+  },
+  created: function() {
+    axios.get("/tvshows")
+      .then(function(response) {
+        this.tvshows = response.data;
+      }.bind(this));
+  },
+  methods: {},
+  computed: {}
+};
+
+
 var LoginPage = {
   template: "#login-page",
   data: function() {
@@ -175,12 +216,13 @@ var router = new VueRouter({
     { path: "/movies", component: MoviesIndexPage },
     { path: "/movies/:id", component: MoviesShowPage },
     { path: "/watchlist", component: WatchlistIndexPage },
-    { path: "/watchlist/new", component: WatchNewPage },
+    // { path: "/watchlist/new", component: WatchNewPage },
     { path: "/signup", component: SignupPage },
     { path: "/login", component: LoginPage },
     { path: "/logout", component: LogoutPage },
     {path: "/player/:id", component: PlayerShowPage},
-    {path:"/browse/", component: BrowseIndexPage}
+    {path:"/browse/", component: BrowseIndexPage},
+    {path:"/tvshows/", component: TVShowsIndexPage}
   ],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };

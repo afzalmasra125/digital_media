@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  post 'user_token' => 'user_token#create'
+   post 'user_token' => 'user_token#create'
    get '/movies' => 'movies#index'
    post '/movies' => 'movies#create'
    get '/movies/:id' => 'movies#show'
@@ -14,6 +14,7 @@ Rails.application.routes.draw do
    get '/images' => 'images#index'
 
    get '/collection' => 'movie_collections#index'
+   get '/tvshows' => 'tv_shows#index'
 end
 
 
