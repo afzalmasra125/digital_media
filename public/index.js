@@ -5,7 +5,7 @@ var MoviesIndexPage = {
   data: function() {
     return {
       movies:[],
-      watchlists:{}
+      movie_id: ""
     };
   },
   created: function() {
@@ -15,16 +15,13 @@ var MoviesIndexPage = {
       }.bind(this));
   },
   methods: {
-        submit: function(){
+        submit: function(movie_id){
           var params = {
-            name: this.name,
-            image_url: this.image_url,
-            actor: this.actor,
-            summary: this.summary,
-            genre: this.genre
+            movie_id: movie_id
           };
           axios.post("/watchlists/", params)
           .then(function(response) {
+            console.log(response);
             router.push("/watchlist");
             })
           }.bind(this)
@@ -36,15 +33,24 @@ var MoviesShowPage = {
   template: "#movies-show-page",
   data: function() {
     return {
-     movie:{}
+     movie:{},
+     movies_collection:false
       };
   },
   created: function() {
+    if (this.$route.params.movie_name){
     axios.get("/movies/" + this.$route.params.id)
       .then(function(response) {
-        this.movie = response.data;
+        this.movie = response.data;   
       }.bind(this));
-       },
+    } else {
+        axios.get("/movies_collection/" + this.$route.params.id) 
+        .then(function(response) {
+        this.movie = response.data;  
+        this.movies_collection = true;
+      }.bind(this));
+    }
+  },
   methods: {},
   computed: {}
 };
@@ -63,49 +69,23 @@ template: "#watchlist-index-page",
   methods: {},
   computed: {}
 };
-// var WatchNewPage = {
-// template: "#watchlist-new-page",
-//   data: function() {
-//     return {
-//          watchlists:{}
-//          };
-//        },
-//        methods: {
-//         submit: function(){
-//           var params = {
-//             name: this.name,
-//             image_url: this.image_url,
-//             actor: this.actor,
-//             summary: this.summary,
-//             genre: this.genre
-//           };
-//           axios.post("/watchlists/", params)
-//           .then(function(response) {
-//             router.push("/");
-//             })
-//           }.bind(this)
-//           // computed: {}
-//        }
-// };
-
-var SignupPage = {
-  template: "#signup-page",
+var RequestMovieIndexPage = {
+  template: "#request-page",
   data: function() {
     return {
-      name: "",
-      email: "",
-      password: "",
-      passwordConfirmation: "",
-      errors: []
+      movie_name: "",
+      year: "",
+      actor: "",
+      genre: ""
     };
   },
   methods: {
     submit: function() {
       var params = {
-        name: this.name,
-        email: this.email,
-        password: this.password,
-        password_confirmation: this.passwordConfirmation
+        movie_name: this.movie_name,
+        year: this.year,
+        actor: this.actor,
+        genre: this.genre
       };
       axios
         .post("/users", params)
@@ -118,7 +98,42 @@ var SignupPage = {
           }.bind(this)
         );
     }
-  }
+   }
+  };
+
+var SignupPage = {
+  template: "#signup-page",
+  data: function() {
+    return {
+      first_name: "",
+      last_name: "",
+      email: "",
+      password: "",
+      passwordconfirmation: "",
+      errors: []
+    };
+  },
+  methods: {
+    submit: function() {
+      var params = {
+        first_name: this.first_name,
+        last_name: this.last_name,
+        email: this.email,
+        password: this.password,
+        password_confirmation: this.passwordconfirmation
+      };
+      axios
+        .post("/users", params)
+        .then(function(response) {
+          router.push("/login");
+        })
+        .catch(
+          function(error) {
+            this.errors = error.response.data.errors;
+          }.bind(this)
+        );
+    }
+   }
   };
   var PlayerShowPage = {
     template: "#player-show-page",
@@ -214,7 +229,7 @@ var router = new VueRouter({
   routes: [
     { path: "/", component: MoviesIndexPage },
     { path: "/movies", component: MoviesIndexPage },
-    { path: "/movies/:id", component: MoviesShowPage },
+    { path: "/movies/:id/:movie_name", component: MoviesShowPage },
     { path: "/watchlist", component: WatchlistIndexPage },
     // { path: "/watchlist/new", component: WatchNewPage },
     { path: "/signup", component: SignupPage },
@@ -222,7 +237,8 @@ var router = new VueRouter({
     { path: "/logout", component: LogoutPage },
     {path: "/player/:id", component: PlayerShowPage},
     {path:"/browse/", component: BrowseIndexPage},
-    {path:"/tvshows/", component: TVShowsIndexPage}
+    {path:"/tvshows/", component: TVShowsIndexPage},
+    {path:"/requestmovie", component: RequestMovieIndexPage}
   ],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };
@@ -231,5 +247,11 @@ var router = new VueRouter({
 
 var app = new Vue({
   el: "#vue-app",
-  router: router
+  router: router,
+  created: function () {
+   var jwt = localStorage.getItem("jwt");
+   if (jwt) {
+     axios.defaults.headers.common["Authorization"] = jwt;
+   }
+ }
 });
