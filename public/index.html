@@ -330,24 +330,21 @@ $(document).ready(function(){
         <div v-if = "movies_collection == false" class ="card md-12">
             <img class ="images card-img-top" v-bind:src="image.image_url" alt="">
             <div class="card-body">
-              <h1>HIHIHIHIHI</h1>
               <h2>{{movie.name}}</h2>
               <p>Genre:- {{movie.genre}}</p>
               <p>Rating:- {{movie.rating}}/10<p>
               <p>Actor:- {{movie.actor}}</p>
               <p>Plot:- {{movie.summary}}</p>
             </div>
-            <a v-bind:href=" '/#/movies/'" class="btn btn-primary float">Add to Watchlist</a>
+            <a v-bind:href=" '/#//watchlist/'" class="btn btn-primary float" v-on:click="submit(movie.id)">Add to Watchlist</a>
             <a v-bind:href=" '/#/player/' + movie.id" class="btn btn-danger float">Play</a>
          </div>
         </div>
         <div v-else class ="card md-12">"
           <h2>{{movie.original_title}}</h2>
-          <h1>HIHIHIHIHI</h1>
         </div>        
       </div>
     </div>
-
 </template>
 <template id="watchlist-index-page">
 <div class="vue-component">
@@ -364,6 +361,7 @@ $(document).ready(function(){
           <p>{{watchlist.summary}}</p>
             <a v-bind:href=" '/#/player/' + watchlist.id" class="btn btn-danger float-right">Play</a>
           <a v-bind:href="'/#/movies/' + watchlist.id" class="btn btn-success float-left">View More Details</a>
+           <a class="btn btn-info" v-bind:href="'/#/watchlist/' + watchlist.id + '/delete'">Delete</a>
         </div>
       </div>
       </div>
@@ -371,7 +369,6 @@ $(document).ready(function(){
   </div>
     </template>
 <!-- <!Authoriation Templates --> 
-
 <template id="signup-page">
   <div class="vue-component">
     <div class="container">

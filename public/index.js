@@ -19,7 +19,7 @@ var MoviesIndexPage = {
           var params = {
             movie_id: movie_id
           };
-          axios.post("/watchlists/", params)
+           axios.post("/watchlists/", params)
           .then(function(response) {
             console.log(response);
             router.push("/watchlist");
@@ -68,7 +68,7 @@ template: "#watchlist-index-page",
   },
   methods: {},
   computed: {}
-};
+  };
 var RequestMovieIndexPage = {
   template: "#request-page",
   data: function() {
@@ -100,6 +100,15 @@ var RequestMovieIndexPage = {
     }
    }
   };
+
+  var WatchlistsDestroyPage = {
+  created: function() {
+    axios.delete("/watchlists/" + this.$route.params.id)
+      .then(function(response) {
+        router.push("/movies");
+      });
+  }
+}
 
 var SignupPage = {
   template: "#signup-page",
@@ -231,14 +240,15 @@ var router = new VueRouter({
     { path: "/movies", component: MoviesIndexPage },
     { path: "/movies/:id/:movie_name", component: MoviesShowPage },
     { path: "/watchlist", component: WatchlistIndexPage },
+    { path: "/watchlist/:id/delete", component: WatchlistsDestroyPage },
     // { path: "/watchlist/new", component: WatchNewPage },
     { path: "/signup", component: SignupPage },
     { path: "/login", component: LoginPage },
     { path: "/logout", component: LogoutPage },
-    {path: "/player/:id", component: PlayerShowPage},
-    {path:"/browse/", component: BrowseIndexPage},
-    {path:"/tvshows/", component: TVShowsIndexPage},
-    {path:"/requestmovie", component: RequestMovieIndexPage}
+    { path: "/player/:id", component: PlayerShowPage},
+    { path:"/browse/", component: BrowseIndexPage},
+    { path:"/tvshows/", component: TVShowsIndexPage},
+    { path:"/requestmovie", component: RequestMovieIndexPage}
   ],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };

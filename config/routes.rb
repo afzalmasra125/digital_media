@@ -10,11 +10,13 @@ Rails.application.routes.draw do
 
    get '/watchlists' => 'watchlists#index'
    post '/watchlists' => 'watchlists#create'
+   delete '/watchlists/:id' => 'watchlists#destroy'
    
    get '/images' => 'images#index'
 
    get '/collection' => 'movie_collections#index'
    get '/tvshows' => 'tv_shows#index'
+
 end
 
 

@@ -12,4 +12,10 @@ class WatchlistsController < ApplicationController
     watchlist.save
     render json: watchlist.as_json
   end
+  def destroy
+   watchlist = Watchlist.find_by(movie_id: params[:id])
+   # user = current_user.id
+   watchlist.destroy    
+   render json: {message: "Successfully destroyed movie ##{movie.id}"}
+ end
 end 
