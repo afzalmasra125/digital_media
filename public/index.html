@@ -22,6 +22,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link rel="stylesheet" href="css/faqstyle.css" type="text/css" media="all" />
 <link href="css/single.css" rel='stylesheet' type='text/css' />
 <link href="css/medile.css" rel='stylesheet' type='text/css' />
+<link href="movies.css" rel='stylesheet' type='text/css' />
 <!-- banner-slider -->
 <link href="css/jquery.slidey.min.css" rel="stylesheet">
 <!-- //banner-slider -->
@@ -87,13 +88,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<input type="submit" value="Go">
 				</form>
 			</div>
-			<div class="w3l_sign_in_register">
-				<ul>
-          <li><a href="/#/login/"> Login </a></li>
-          <li><a href="/#/signup/"> Sign Up </a></li>
-				</ul>
-			</div>
-			<div class="clearfix"> </div>
 		</div>
 	</div>
 <!-- //header -->
@@ -128,30 +122,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li class="dropdown">
 								<ul class="dropdown-menu multi-column columns-3">
 									<li>
-										<div class="col-sm-4">
-											<ul class="multi-column-dropdown">
-												<li><a href="genres.html">Asia</a></li>
-												<li><a href="genres.html">France</a></li>
-												<li><a href="genres.html">Taiwan</a></li>
-												<li><a href="genres.html">United States</a></li>
-											</ul>
-										</div>
-										<div class="col-sm-4">
-											<ul class="multi-column-dropdown">
-												<li><a href="genres.html">China</a></li>
-												<li><a href="genres.html">HongCong</a></li>
-												<li><a href="genres.html">Japan</a></li>
-												<li><a href="genres.html">Thailand</a></li>
-											</ul>
-										</div>
-										<div class="col-sm-4">
-											<ul class="multi-column-dropdown">
-												<li><a href="genres.html">Euro</a></li>
-												<li><a href="genres.html">India</a></li>
-												<li><a href="genres.html">Korea</a></li>
-												<li><a href="genres.html">United Kingdom</a></li>
-											</ul>
-										</div>
 										<div class="clearfix"></div>
 									</li>
 								</ul>
@@ -159,6 +129,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               <li><a href="/#/browse">Browse Movies</a></li>
               <li><a href="/#/tvshows">TV Shows</a></li>
 							<li><a href="/#/requestmovie">Request a Movie</a></li>
+                  <div class="dropdown">
+                    <button class="dropbtn">Account</button>
+                      <div class="dropdown-content">
+                          <li><a href="/#/login/"> Login </a></li>
+                          <li><a href="/#/signup/"> Sign Up </a></li>
+                         <li><a href="/#/logut/"> Log Out </a></li>
+                      </div>
+                    </div>
 						</ul>
 					</nav>
 				</div>
@@ -308,14 +286,20 @@ $(document).ready(function(){
   </a>
 </div>
       <div class ="row">
+        <br>
+        <h1 style="font-family:verdana;">Featured Movies</h1>
+      </br>
         <div v-for="movie in movies" class="col-md-4">
           <div class="card md-4">
             <div v-for="image in movie.images">
               <img class="images card-img-top" v-bind:src="image.image_url" alt="">
             <div class="card-body">
           <h2>{{movie.name}}</h2>
+          </br>
         <a v-bind:href=" '/#//watchlist/'" class="btn btn-primary float-right" v-on:click="submit(movie.id)">Add to Watchlist</a>
         <a v-bind:href="'/#/movies/' + movie.id + '/' + movie.name" class="btn btn-success float-left">View More Details</a>
+        </br>
+      </br>
           </div>
         </div>
       </div>
@@ -331,16 +315,22 @@ $(document).ready(function(){
             <img class ="images card-img-top" v-bind:src="image.image_url" alt="">
             <div class="card-body">
               <h2>{{movie.name}}</h2>
-              <p>Genre:- {{movie.genre}}</p>
-              <p>Rating:- {{movie.rating}}/10<p>
-              <p>Actor:- {{movie.actor}}</p>
-              <p>Plot:- {{movie.summary}}</p>
+              </br>
+              <p><b>Genre:- </b> {{movie.genre}}</p>
+              </br>
+              <p> <b> Rating:- </b> {{movie.rating}}/10<p>
+                </br>
+              <p> <b> Actor:- </b> {{movie.actor}}</p>
+              </br>
+              <p> <b> Plot:- </b> {{movie.summary}}</p>
+              </br>
             </div>
             <a v-bind:href=" '/#//watchlist/'" class="btn btn-primary float" v-on:click="submit(movie.id)">Add to Watchlist</a>
             <a v-bind:href=" '/#/player/' + movie.id" class="btn btn-danger float">Play</a>
          </div>
+          </br>
         </div>
-        <div v-else class ="card md-12">"
+        <div v-else>
           <h2>{{movie.original_title}}</h2>
         </div>        
       </div>
@@ -356,12 +346,18 @@ $(document).ready(function(){
               <img class = "images card-img-top" v-bind:src="image.image_url" alt="">
             <div class="card-body">
           <h2>{{watchlist.name}}</h2>
-          <p>{{watchlist.genre}}</p>
-          <p>{{watchlist.actor}}</p>
-          <p>{{watchlist.summary}}</p>
+          </br>
+          <p> <b> Genre:- </b> {{watchlist.genre}}</p>
+          </br>
+          <p> <b> Actor:- </b> {{watchlist.actor}}</p>
+          </br>
+          <p> <b> Plot:- </b>  {{watchlist.summary}}</p>
+          </br>
             <a v-bind:href=" '/#/player/' + watchlist.id" class="btn btn-danger float-right">Play</a>
           <a v-bind:href="'/#/movies/' + watchlist.id" class="btn btn-success float-left">View More Details</a>
            <a class="btn btn-info" v-bind:href="'/#/watchlist/' + watchlist.id + '/delete'">Delete</a>
+           </br>
+           </br>
         </div>
       </div>
       </div>
@@ -436,13 +432,19 @@ $(document).ready(function(){
  <div class="vue-component">
   <div class ="container">
       <div class ="row">
+        <br>
+         <h1 style="font-family:verdana;">Recently Added</h1>
+       </br>
         <div v-for="movie in movies" class="col-md-4">
           <div class="card md-4">
               <img class="images card-img-top"  v-bind:src="'https://image.tmdb.org/t/p/w185/' + movie.poster_path" alt="">
             <div class="card-body">
           <h2>{{movie.original_title}}</h2>
+          </br>
         <a v-bind:href=" '/#/movies/'" class="btn btn-primary float-right">Add to Watchlist</a>
         <a v-bind:href="'/#/movies/' + movie.id" class="btn btn-success float-left">View More Details</a>
+          </br>
+          </br>
           </div>
         </div>
       </div>
@@ -460,8 +462,11 @@ $(document).ready(function(){
               <img class="images card-img-top"  v-bind:src="'https://image.tmdb.org/t/p/w185/' + tvshow.poster_path" alt="">
             <div class="card-body">
           <h2>{{tvshow.name}}</h2>
+        </br>
         <a v-bind:href=" '/#/movies/'" class="btn btn-primary float-right">Add to Watchlist</a>
         <a v-bind:href="'/#/tvshow/' + tvshow.id" class="btn btn-success float-left">View More Details</a>
+        </br>
+        </br>
           </div>
         </div>
        </div>

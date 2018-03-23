@@ -54,6 +54,7 @@ input[type="submit"],.agileinfo_chat a,.w3ls_footer_grid1_left p a,.w3l_sign_in_
     padding-right: 1.67em;
     font-weight: 900;
 	padding-bottom: .3em;
+  mix-blend-mode: multiply;
 }
 .w3layouts_logo a h1 span{
 	color: #FF8D1B;
@@ -72,7 +73,7 @@ input[type="submit"],.agileinfo_chat a,.w3ls_footer_grid1_left p a,.w3l_sign_in_
 }
 .w3_search input[type="text"]{
 	outline: none;
-    border: none;
+    border: solid;
     background:#EFEFEF;
     padding: 10px;
     text-align: center;
@@ -87,7 +88,7 @@ input[type="submit"],.agileinfo_chat a,.w3ls_footer_grid1_left p a,.w3l_sign_in_
 	outline: none;
     border: none;
     background: #212121;
-    padding: 10px 0;
+    padding: 13px 0;
     font-size: 14px;
     color: #fff;
     width: 22%;

@@ -51,7 +51,18 @@ var MoviesShowPage = {
       }.bind(this));
     }
   },
-  methods: {},
+  methods: {
+     submit: function(movie_id){
+          var params = {
+            movie_id: movie_id
+          };
+           axios.post("/watchlists/", params)
+          .then(function(response) {
+            console.log(response);
+            router.push("/watchlist");
+            })
+          }.bind(this)
+  },
   computed: {}
 };
 var WatchlistIndexPage = {
@@ -105,7 +116,7 @@ var RequestMovieIndexPage = {
   created: function() {
     axios.delete("/watchlists/" + this.$route.params.id)
       .then(function(response) {
-        router.push("/movies");
+        router.push("/#/movies");
       });
   }
 }
@@ -239,6 +250,7 @@ var router = new VueRouter({
     { path: "/", component: MoviesIndexPage },
     { path: "/movies", component: MoviesIndexPage },
     { path: "/movies/:id/:movie_name", component: MoviesShowPage },
+     { path: "/movies/:id", component: MoviesShowPage },
     { path: "/watchlist", component: WatchlistIndexPage },
     { path: "/watchlist/:id/delete", component: WatchlistsDestroyPage },
     // { path: "/watchlist/new", component: WatchNewPage },
