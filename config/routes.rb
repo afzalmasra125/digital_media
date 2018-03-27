@@ -14,7 +14,9 @@ Rails.application.routes.draw do
    
    get '/images' => 'images#index'
 
-   get '/collection' => 'movie_collections#index'
+   get '/collection/' => 'movie_collections#index'
+   get '/collection/:id' => 'movie_collections#show'
+
    get '/tvshows' => 'tv_shows#index'
 
 end

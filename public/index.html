@@ -36,6 +36,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <!-- //js -->
 <!-- banner-bottom-plugin -->
+
 <link href="css/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
 <script src="js/owl.carousel.js"></script>
 <script>
@@ -65,7 +66,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 	});
 </script>
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
   <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.js"></script>
   <script src="//vjs.zencdn.net/5.4.6/video.min.js"></script>
@@ -82,7 +83,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="w3layouts_logo">
 				<a href="/#/movies"><h1>Digital<span>Media</span></h1></a>
 			</div>
-			<div class="w3_search">
+			 <div class="w3_search">
 				<form action="#" method="post">
 					<input type="text" name="Search" placeholder="Search" required="">
 					<input type="submit" value="Go">
@@ -118,7 +119,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</li>
 								</ul>
 							</li>
+              <template v-if="isLoggedIn == true">
 							<li><a href="/#/watchlist">Watchlist</a></li>
+              </template>
 							<li class="dropdown">
 								<ul class="dropdown-menu multi-column columns-3">
 									<li>
@@ -132,17 +135,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                   <div class="dropdown">
                     <button class="dropbtn">Account</button>
                       <div class="dropdown-content">
-                          <li><a href="/#/login/"> Login </a></li>
+                        <template v-if="isLoggedIn == true">
+                          <li><a href="/#/logout/"> Log Out </a></li>
+                        </template>
+                        <template v-if="isLoggedIn == false">
+                          <li><a href="/#/login/" > Login </a></li>
+                          </template>
+                          <template v-if="isLoggedIn == false">
                           <li><a href="/#/signup/"> Sign Up </a></li>
-                         <li><a href="/#/logut/"> Log Out </a></li>
+                        </template>
                       </div>
                     </div>
-						</ul>
-					</nav>
-				</div>
-			</nav>	
-		</div>
-	</div>
+						 </ul>
+					 </nav>
+				 </div>
+			 </nav>	
+		 </div>
+	 </div>
 
    <router-view></router-view>
 <!-- //nav -->
@@ -267,7 +276,7 @@ $(document).ready(function(){
     </div>
 
     <div class="item">
-      <img src="http://icloudpicture.com/wp-content/uploads/2016/12/Best-Movie-2017-HD-Wallpapers.jpg" alt="Chicago">
+      <img src="Quotefancy-1786257-3840x2160.jpg" alt="Chicago">
     </div>
 
     <div class="item">
@@ -296,7 +305,9 @@ $(document).ready(function(){
             <div class="card-body">
           <h2>{{movie.name}}</h2>
           </br>
-        <a v-bind:href=" '/#//watchlist/'" class="btn btn-primary float-right" v-on:click="submit(movie.id)">Add to Watchlist</a>
+        <template v-if="isLoggedIn == true">
+        <a  v-bind:href=" '/#//watchlist/'" class="btn btn-primary float-right" v-on:click="submit(movie.id)">Add to Watchlist</a>
+         </template>
         <a v-bind:href="'/#/movies/' + movie.id + '/' + movie.name" class="btn btn-success float-left">View More Details</a>
         </br>
       </br>
@@ -310,10 +321,10 @@ $(document).ready(function(){
 <template id="movies-show-page">
   <div class="vue-component">
     <div class ="container">
-      <div v-for="image in movie.images" class="col-md-8"> 
-        <div v-if = "movies_collection == false" class ="card md-12">
+      <div v-for="image in movie.images" class="col-md-4"> 
+        <div v-if="movies_collection == false" class ="card md-4">
             <img class ="images card-img-top" v-bind:src="image.image_url" alt="">
-            <div class="card-body">
+            <div class="card-body" >
               <h2>{{movie.name}}</h2>
               </br>
               <p><b>Genre:- </b> {{movie.genre}}</p>
@@ -330,8 +341,18 @@ $(document).ready(function(){
          </div>
           </br>
         </div>
-        <div v-else>
+        <div v-if="movies_collection == true">
+          </br>
+          <div class="card md-12">
+              <img class="images card-img-top"  v-bind:src="'https://image.tmdb.org/t/p/w185/' + movie.poster_path" alt="">
+            <div class="card-body">
           <h2>{{movie.original_title}}</h2>
+          <p>{{movie.overview}}</p>
+        </br>
+          <a v-bind:href=" '/#//watchlist/'" class="btn btn-primary float" v-on:click="submit(movie.id)">Add to Watchlist</a>
+          <a v-bind:href=" '/#/player/' + movie.id" class="btn btn-danger float">Play</a>
+          </br>
+        </br>
         </div>        
       </div>
     </div>
@@ -375,24 +396,24 @@ $(document).ready(function(){
         <li class="text-danger" v-for="error in errors">{{ error }}</li>
       </ul>
       <div class="form-group">
-        <label>First Name:</label> 
-        <input type="text" class="form-control" v-model="first_name">
+        <label>*First Name:</label> 
+        <input type="text" class="form-control" v-model="first_name" style="width: 290px;"/>
       </div><br/>
        <div class="form-group">
-      <label>Last Name:</label> 
-        <input type="text" class="form-control" v-model="last_name">
+      <label>*Last Name:</label> 
+        <input type="text" class="form-control" v-model="last_name" style="width: 290px;"/>
       </div><br/>
       <div class="form-group">
-        <label>Email:</label>
-        <input type="email" class="form-control" v-model="email">
+        <label>*Email:</label>
+        <input type="email" class="form-control" v-model="email" style="width: 290px;"/>
       </div><br/>
       <div class="form-group">
-        <label>Password:</label>
-        <input type="password" class="form-control" v-model="password">
+        <label>*Password:</label>
+        <input type="password" class="form-control" v-model="password" style="width: 290px;"/>
       </div><br/>
       <div class="form-group">
-        <label>Password confirmation:</label>
-        <input type="password" class="form-control" v-model="passwordconfirmation">
+        <label>*Password confirmation:</label>
+        <input type="password" class="form-control" v-model="passwordconfirmation" style="width: 290px;" />
       </div><br/>
       <button class="btn btn-primary" v-on:click="submit()">Submit</button>
     </div><br/>
@@ -409,17 +430,33 @@ $(document).ready(function(){
         <li class="text-danger" v-for="error in errors">{{ error }}</li>
       </ul>
       <div class="form-group">
-        <label>Email:</label>
-        <input type="email" class="form-control" v-model="email">
+        <label>*Email:</label>
+        <input type="email" class="form-control" v-model="email" style="width: 290px;"/>
       </div><br/>
       <div class="form-group">
-        <label>Password:</label>
-        <input type="password" class="form-control" v-model="password">
-      </div><br/>
+        <label>*Password:</label>
+        <input type="password" class="form-control" v-model="password"style="width: 290px;"/>
+        <input id="checkBox" type="checkbox">
+        <label>Remember my password </label>
+         </div><br/>
       <button class="btn btn-primary" v-on:click="submit()">Submit</button>
+    </br>
+       <a href="#" target="_blank">Forgot your password?</a> 
     </div><br/>
 
   </div>
+</template>
+
+<template id="logout-page">
+  <div class="vue-component">
+    <div class="container">
+  <br>
+    <h1> Thank you for visiting Digital Media </h1>
+  </br>
+    <a v-bind:href=" '/#/movies/'" class="btn btn-primary float-right">Retrun to Home </a>
+    <a v-bind:href=" '/#/login/'" class="btn btn-success float-left">Login </a>
+  </br>
+</br>
 </template>
 
   <template id="player-show-page">
@@ -443,8 +480,10 @@ $(document).ready(function(){
           </br>
         <a v-bind:href=" '/#/movies/'" class="btn btn-primary float-right">Add to Watchlist</a>
         <a v-bind:href="'/#/movies/' + movie.id" class="btn btn-success float-left">View More Details</a>
-          </br>
-          </br>
+            </br>
+             </br>
+              </br>
+               </br>
           </div>
         </div>
       </div>
@@ -457,6 +496,9 @@ $(document).ready(function(){
  <div class="vue-component">
   <div class ="container">
       <div class ="row">
+         <br>
+         <h1 style="font-family:verdana;">TV Shows</h1>
+       </br>
         <div v-for="tvshow in tvshows" class="col-md-4">
           <div class="card md-4">
               <img class="images card-img-top"  v-bind:src="'https://image.tmdb.org/t/p/w185/' + tvshow.poster_path" alt="">
@@ -465,8 +507,10 @@ $(document).ready(function(){
         </br>
         <a v-bind:href=" '/#/movies/'" class="btn btn-primary float-right">Add to Watchlist</a>
         <a v-bind:href="'/#/tvshow/' + tvshow.id" class="btn btn-success float-left">View More Details</a>
-        </br>
-        </br>
+         </br>
+             </br>
+              </br>
+               </br>
           </div>
         </div>
        </div>
@@ -483,21 +527,24 @@ $(document).ready(function(){
       <br/>
       <div class="form-group">
         <label>Movie Name:</label> 
-        <input type="text" class="form-control" v-model="first_name">
+        <input type="text" class="form-control" v-model="movie_name" style="width: 290px;" />
       </div><br/>
        <div class="form-group">
       <label>Year:</label> 
-        <input type="text" class="form-control" v-model="last_name">
+        <input type="text" class="form-control" v-model="year" style="width: 100px;" />
       </div><br/>
       <div class="form-group">
         <label>Actor:</label>
-        <input type="email" class="form-control" v-model="email">
+        <input type="email" class="form-control" v-model="actor" style="width: 290px; height:150px; " />
       </div><br/>
       <div class="form-group">
         <label>Genre:</label>
-        <input type="password" class="form-control" v-model="password">
+        <input type="password" class="form-control" v-model="genre" style = "width: 290px;" />
       </div><br/>
       <button class="btn btn-primary" v-on:click="submit()">Submit</button>
+      <div>
+      <a href="http://www.imdb.com/" target="_blank">Look up Movies?</a> 
+    </div>
     </div><br/>
   </div>
 </template>

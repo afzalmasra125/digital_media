@@ -44,8 +44,9 @@ var MoviesShowPage = {
         this.movie = response.data;   
       }.bind(this));
     } else {
-        axios.get("/movies_collection/" + this.$route.params.id) 
+        axios.get("/collection/" + this.$route.params.id) 
         .then(function(response) {
+          console.log(response);
         this.movie = response.data;  
         this.movies_collection = true;
       }.bind(this));
@@ -130,7 +131,8 @@ var SignupPage = {
       email: "",
       password: "",
       passwordconfirmation: "",
-      errors: []
+      errors: [],
+      // isLoginDisabled:true
     };
   },
   methods: {
@@ -146,6 +148,7 @@ var SignupPage = {
         .post("/users", params)
         .then(function(response) {
           router.push("/login");
+          // isLoginDisabled:true;
         })
         .catch(
           function(error) {
@@ -211,7 +214,7 @@ var LoginPage = {
     return {
       email: "",
       password: "",
-      errors: []
+      errors: [],
     };
   },
   methods: {
@@ -238,10 +241,11 @@ var LoginPage = {
   }
 };
 var LogoutPage = {
+  template: "#logout-page",
   created: function() {
     axios.defaults.headers.common["Authorization"] = undefined;
     localStorage.removeItem("jwt");
-    router.push("/");
+    router.push("/logout");
   }
 };
 
@@ -269,10 +273,14 @@ var router = new VueRouter({
 
 var app = new Vue({
   el: "#vue-app",
+  data: function() {
+    return {isLoggedIn: false}
+  },
   router: router,
   created: function () {
    var jwt = localStorage.getItem("jwt");
    if (jwt) {
+     this.isLoggedIn = true;
      axios.defaults.headers.common["Authorization"] = jwt;
    }
  }
