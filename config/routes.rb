@@ -6,6 +6,7 @@ Rails.application.routes.draw do
    patch '/movies/:id' => 'movies#update'
    delete '/movies/:id' => 'movies#destroy'
 
+   get '/users' => 'users#index'
    post '/users' => 'users#create'
 
    get '/watchlists' => 'watchlists#index'

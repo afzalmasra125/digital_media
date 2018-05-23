@@ -305,10 +305,8 @@ $(document).ready(function(){
             <div class="card-body">
           <h2>{{movie.name}}</h2>
           </br>
-        <template v-if="isLoggedIn == true">
-        <a  v-bind:href=" '/#//watchlist/'" class="btn btn-primary float-right" v-on:click="submit(movie.id)">Add to Watchlist</a>
-         </template>
-        <a v-bind:href="'/#/movies/' + movie.id + '/' + movie.name" class="btn btn-success float-left">View More Details</a>
+          <a v-bind:href=" '/#//watchlist/'" class="btn btn-primary float-right" v-on:click="submit(movie.id)">Add to Watchlist</a>
+         <a v-bind:href="'/#/movies/' + movie.id + '/' + movie.name" class="btn btn-success float-left">View More Details</a>
         </br>
       </br>
           </div>
