@@ -1,6 +1,5 @@
-class MoviesController < ApplicationController
+ class MoviesController < ApplicationController
 # before_action :authenticate_admin, only: [:create, :update, :destroy]
-
   def index
     @movies = Movie.all
     
@@ -28,8 +27,10 @@ class MoviesController < ApplicationController
         })
         image.save
         render json: movie.as_json
+      else
+          render json: {errors: @movies.errors.full_messages}, status: :unprocessable_entity
+      end
     end
-  end 
   def show
     @movie = Movie.find(params[:id])
     render 'show.json.jbuilder'
@@ -43,6 +44,7 @@ class MoviesController < ApplicationController
     movie.rating = params[:rating] || movie.rating
     movie.genre = params[:genre] || movie.genre
     movie.content_url = params[:content_url] || movie.content_url
+    movie.save
     render json: movie.as_json
   end 
  def destroy

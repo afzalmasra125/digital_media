@@ -1,96 +1,314 @@
+<!--
+author: W3layouts
+author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Digital Media</title>
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-   <link href="//vjs.zencdn.net/5.4.6/video-js.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="movies.css">
+<title>Digital Media</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="One Movies Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="css/contactstyle.css" type="text/css" media="all" />
+<link rel="stylesheet" href="css/faqstyle.css" type="text/css" media="all" />
+<link href="css/single.css" rel='stylesheet' type='text/css' />
+<link href="css/medile.css" rel='stylesheet' type='text/css' />
+<link href="movies.css" rel='stylesheet' type='text/css' />
+<!-- banner-slider -->
+<link href="css/jquery.slidey.min.css" rel="stylesheet">
+<!-- //banner-slider -->
+<!-- pop-up -->
+<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+<!-- //pop-up -->
+<!-- font-awesome icons -->
+<link rel="stylesheet" href="css/font-awesome.min.css" />
+<!-- //font-awesome icons -->
+<!-- js -->
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<!-- //js -->
+<!-- banner-bottom-plugin -->
+
+<link href="css/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
+<script src="js/owl.carousel.js"></script>
+<script>
+	$(document).ready(function() { 
+		$("#owl-demo").owlCarousel({
+	 
+		  autoPlay: 3000, //Set AutoPlay to 3 seconds
+	 
+		  items : 5,
+		  itemsDesktop : [640,4],
+		  itemsDesktopSmall : [414,3]
+	 
+		});
+	 
+	}); 
+</script> 
+<!-- //banner-bottom-plugin -->
+<link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300' rel='stylesheet' type='text/css'>
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
   <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.js"></script>
   <script src="//vjs.zencdn.net/5.4.6/video.min.js"></script>
   <script src="index.js" defer></script>
+<!-- start-smoth-scrolling -->
 </head>
+	
 <body>
- <div id="vue-app">
-     <nav class="navbar navbar-expand-lg navbar-primary" style="background-color: #e3f2fd;">
-  <a class="navbar-brand" href="/#/">Home</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <div id="vue-app">
+    
+<!-- header -->
+	<div class="header">
+		<div class="container">
+			<div class="w3layouts_logo">
+				<a href="/#/movies"><h1>Digital<span>Media</span></h1></a>
+			</div>
+			 <div class="w3_search">
+				<form action="#" method="post">
+					<input type="text" name="Search" placeholder="Search" required="">
+					<input type="submit" value="Go">
+				</form>
+			</div>
+		</div>
+	</div>
+<!-- //header -->
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/#/watchlist">Watch List<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Browse Movie</a>
-      </li>
-       <li class="nav-item">
-        <a class="nav-link" href="#/login/">Login</a>
-      </li>
-       <li class="nav-item">
-        <a class="nav-link" href="#/logout/">Logout</a>
-      </li>
-       <li class="nav-item">
-        <a class="nav-link" href="#/signup/">Signup</a>
-      </li>
-      </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+
+<!-- //bootstrap-pop-up -->
+<!-- nav -->
+	<div class="movies_nav">
+		<div class="container">
+			<nav class="navbar navbar-default">
+				<div class="navbar-header navbar-left">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+					<nav>
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="/#/movies">Home</a></li>
+							<li class="dropdown">
+								<ul class="dropdown-menu multi-column columns-3">
+									<li>
+									<div class="clearfix"></div>
+									</li>
+								</ul>
+							</li>
+              <template v-if="isLoggedIn == true">
+							<li><a href="/#/watchlist">Watchlist</a></li>
+              </template>
+							<li class="dropdown">
+								<ul class="dropdown-menu multi-column columns-3">
+									<li>
+										<div class="clearfix"></div>
+									</li>
+								</ul>
+							</li>
+              <li><a href="/#/browse">Browse Movies</a></li>
+              <li><a href="/#/tvshows">TV Shows</a></li>
+							<li><a href="/#/requestmovie">Request a Movie</a></li>
+                  <div class="dropdown">
+                    <button class="dropbtn">Account</button>
+                      <div class="dropdown-content">
+                        <template v-if="isLoggedIn == true">
+                          <li><a href="/#/logout/"> Log Out </a></li>
+                        </template>
+                        <template v-if="isLoggedIn == false">
+                          <li><a href="/#/login/" > Login </a></li>
+                          </template>
+                          <template v-if="isLoggedIn == false">
+                          <li><a href="/#/signup/"> Sign Up </a></li>
+                        </template>
+                      </div>
+                    </div>
+						 </ul>
+					 </nav>
+				 </div>
+			 </nav>	
+		 </div>
+	 </div>
+
+   <router-view></router-view>
+<!-- //nav -->
+<!-- banner -->
+	<div class="footer">
+		<div class="container">
+			<div class="w3ls_footer_grid">
+				<div class="col-md-6 w3ls_footer_grid_left">
+					<div class="w3ls_footer_grid_left1">
+						<h2>Subscribe to us</h2>
+						<div class="w3ls_footer_grid_left1_pos">
+							<form action="#" method="post">
+								<input type="email" name="email" placeholder="Your email..." required="">
+								<input type="submit" value="Send">
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 w3ls_footer_grid_right">
+					<a href="index.html"><h2>Digital<span>Media</span></h2></a>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="col-md-5 w3ls_footer_grid1_left">
+				<p>&copy; 2016 Digital media. All rights reserved </p>
+			</div>
+			<div class="col-md-7 w3ls_footer_grid1_right">
+				<ul>
+					<li>
+						<a href="genres.html">Movies</a>
+					</li>
+					<li>
+						<a href="faq.html">FAQ</a>
+					</li>
+					<li>
+						<a href="horror.html">Action</a>
+					</li>
+					<li>
+						<a href="genres.html">Adventure</a>
+					</li>
+					<li>
+						<a href="comedy.html">Comedy</a>
+					</li>
+					<li>
+						<a href="icons.html">Icons</a>
+					</li>
+					<li>
+						<a href="contact.html">Contact Us</a>
+					</li>
+				</ul>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
   </div>
-    </nav>
-    <router-view></router-view>
-  </div>
+
+  <script>
+    $('.toggle').click(function(){
+      // Switches the Icon
+      $(this).children('i').toggleClass('fa-pencil');
+      // Switches the forms  
+      $('.form').animate({
+      height: "toggle",
+      'padding-top': 'toggle',
+      'padding-bottom': 'toggle',
+      opacity: "toggle"
+      }, "slow");
+    });
+  </script>
+<!-- //footer -->
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(".dropdown").hover(            
+        function() {
+            $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
+            $(this).toggleClass('open');        
+        },
+        function() {
+            $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+            $(this).toggleClass('open');       
+        }
+    );
+});
+</script>
+<!-- //Bootstrap Core JavaScript -->
+<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+<!-- //here ends scrolling icon -->
 </body>
 </html>
 <template id="movies-index-page">
  <div class="vue-component">
   <div class ="container">
-      <div id="carouselExampleIndicators" class="carousel slide" 
-    data-ride="carousel">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
   <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators1" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators2" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
   </ol>
-  <div class="carousel-inner" role="listbox">
-    <div class="carousel-item active">
-      <img class="d-block img-fluid" src="https://www.flixist.com//ul/219248-fake-22-jump-street-posters-are-canon-in-23-jump-street/29jumpstreet-noscale.jpg" alt="First slide">
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <img src="https://s3.tmimgcdn.com/templates/2183/scr/Template_1930x1200.jpg" alt="">
     </div>
-    <div class="carousel-item">
-      <img class="d-block img-fluid" src="https://www.flixist.com//ul/219248-fake-22-jump-street-posters-are-canon-in-23-jump-street/29jumpstreet-noscale.jpg" alt="Second slide">
+
+    <div class="item">
+      <img src="Quotefancy-1786257-3840x2160.jpg" alt="Chicago">
     </div>
-    <div class="carousel-item">
-      <img class="d-block img-fluid" src= "https://www.flixist.com//ul/219248-fake-22-jump-street-posters-are-canon-in-23-jump-street/29jumpstreet-noscale.jpg" alt="Third slide">
+
+    <div class="item">
+      <img src="https://movies.universalpictures.com/media/tod-mainstagefull-v1-5a4d1433c854d-1.jpg" alt="New York">
     </div>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
     <span class="sr-only">Next</span>
   </a>
-  </div>
 </div>
       <div class ="row">
-           <div v-for="movie in movies" class="col-md-4">
-            <div class ="card md-12">
-            <div v-for="image in movie.images" >
-              <img class = "card-img-top" v-bind:src="image.image_url" alt="">
+        <br>
+        <h1 style="font-family:verdana;">Featured Movies</h1>
+      </br>
+        <div v-for="movie in movies" class="col-md-4">
+          <div class="card md-4">
+            <div v-for="image in movie.images">
+              <img class="images card-img-top" v-bind:src="image.image_url" alt="">
             <div class="card-body">
           <h2>{{movie.name}}</h2>
-          <p>Genre:- {{movie.genre}}</p>
-          <p>Actors:- {{movie.actor}}</p>
-          <p>Plot:- {{movie.summary}}</p>
-        <a v-bind:href=" '/#/movies/'" class="btn btn-primary float-right">Add to Watchlist</a>
-        <a v-bind:href="'/#/movies/' + movie.id" class="btn btn-danger float-left">View More Details</a>
+          </br>
+          <a v-bind:href=" '/#//watchlist/'" class="btn btn-primary float-right" v-on:click="submit(movie.id)">Add to Watchlist</a>
+         <a v-bind:href="'/#/movies/' + movie.id + '/' + movie.name" class="btn btn-success float-left">View More Details</a>
+        </br>
+      </br>
           </div>
         </div>
       </div>
@@ -101,21 +319,39 @@
 <template id="movies-show-page">
   <div class="vue-component">
     <div class ="container">
-      <div v-for="image in movie.images" class="col-md-8"> 
-        <div class ="card md-12">
-              <img class = "card-img-top" v-bind:src="image.image_url" alt="">
-              <div class="card-body">
-       <h2>{{movie.name}}</h2>
-       <p>Genre:- {{movie.genre}}</p>
-       <p>Rating:- {{movie.rating}}/10<p>
-        <p>Actor:- {{movie.actor}}</p>
-       <p>Plot:-  {{movie.summary}}</p>
-        <a v-bind:href=" '/#/movies/'" class="btn btn-primary float">Add to Watchlist</a>
-        <a v-bind:href=" '/#/player/'" class="btn btn-secondary float">Play</a>
+      <div v-for="image in movie.images" class="col-md-4"> 
+        <div v-if="movies_collection == false" class ="card md-4">
+            <img class ="images card-img-top" v-bind:src="image.image_url" alt="">
+            <div class="card-body" >
+              <h2>{{movie.name}}</h2>
+              </br>
+              <p><b>Genre:- </b> {{movie.genre}}</p>
+              </br>
+              <p> <b> Rating:- </b> {{movie.rating}}/10<p>
+                </br>
+              <p> <b> Actor:- </b> {{movie.actor}}</p>
+              </br>
+              <p> <b> Plot:- </b> {{movie.summary}}</p>
+              </br>
             </div>
-           </div>
+            <a v-bind:href=" '/#//watchlist/'" class="btn btn-primary float" v-on:click="submit(movie.id)">Add to Watchlist</a>
+            <a v-bind:href=" '/#/player/' + movie.id" class="btn btn-danger float">Play</a>
          </div>
+          </br>
         </div>
+        <div v-if="movies_collection == true">
+          </br>
+          <div class="card md-12">
+              <img class="images card-img-top"  v-bind:src="'https://image.tmdb.org/t/p/w185/' + movie.poster_path" alt="">
+            <div class="card-body">
+          <h2>{{movie.original_title}}</h2>
+          <p>{{movie.overview}}</p>
+        </br>
+          <a v-bind:href=" '/#//watchlist/'" class="btn btn-primary float" v-on:click="submit(movie.id)">Add to Watchlist</a>
+          <a v-bind:href=" '/#/player/' + movie.id" class="btn btn-danger float">Play</a>
+          </br>
+        </br>
+        </div>        
       </div>
     </div>
 </template>
@@ -126,14 +362,21 @@
       <div v-for="watchlist in watchlists" class="col-md-4">
          <div class ="card md-4">
       <div v-for="image in watchlist.images" >
-              <img class = "card-img-top" v-bind:src="image.image_url" alt="">
+              <img class = "images card-img-top" v-bind:src="image.image_url" alt="">
             <div class="card-body">
           <h2>{{watchlist.name}}</h2>
-          <p>{{watchlist.genre}}</p>
-          <p>{{watchlist.actor}}</p>
-          <p>{{watchlist.summary}}</p>
-           <a v-bind:href=" '/#/player'" class="btn btn-secondary float-right">Play</a>
-          <a v-bind:href="'/#/movies/' + watchlist.id" class="btn btn-danger float-left">View More Details</a>
+          </br>
+          <p> <b> Genre:- </b> {{watchlist.genre}}</p>
+          </br>
+          <p> <b> Actor:- </b> {{watchlist.actor}}</p>
+          </br>
+          <p> <b> Plot:- </b>  {{watchlist.summary}}</p>
+          </br>
+            <a v-bind:href=" '/#/player/' + watchlist.id" class="btn btn-danger float-right">Play</a>
+          <a v-bind:href="'/#/movies/' + watchlist.id" class="btn btn-success float-left">View More Details</a>
+           <a class="btn btn-info" v-bind:href="'/#/watchlist/' + watchlist.id + '/delete'">Delete</a>
+           </br>
+           </br>
         </div>
       </div>
       </div>
@@ -141,65 +384,168 @@
   </div>
     </template>
 <!-- <!Authoriation Templates --> 
-
 <template id="signup-page">
   <div class="vue-component">
     <div class="container">
+      <br/>
       <h1>Signup</h1>
+      <br/>
       <ul>
         <li class="text-danger" v-for="error in errors">{{ error }}</li>
       </ul>
       <div class="form-group">
-        <label>Name:</label> 
-        <input type="text" class="form-control" v-model="name">
-      </div>
+        <label>*First Name:</label> 
+        <input type="text" class="form-control" v-model="first_name" style="width: 290px;"/>
+      </div><br/>
+       <div class="form-group">
+      <label>*Last Name:</label> 
+        <input type="text" class="form-control" v-model="last_name" style="width: 290px;"/>
+      </div><br/>
       <div class="form-group">
-        <label>Email:</label>
-        <input type="email" class="form-control" v-model="email">
-      </div>
+        <label>*Email:</label>
+        <input type="email" class="form-control" v-model="email" style="width: 290px;"/>
+      </div><br/>
       <div class="form-group">
-        <label>Password:</label>
-        <input type="password" class="form-control" v-model="password">
-      </div>
+        <label>*Password:</label>
+        <input type="password" class="form-control" v-model="password" style="width: 290px;"/>
+      </div><br/>
       <div class="form-group">
-        <label>Password confirmation:</label>
-        <input type="password" class="form-control" v-model="passwordConfirmation">
-      </div>
+        <label>*Password confirmation:</label>
+        <input type="password" class="form-control" v-model="passwordconfirmation" style="width: 290px;" />
+      </div><br/>
       <button class="btn btn-primary" v-on:click="submit()">Submit</button>
-    </div>
+    </div><br/>
   </div>
 </template>
 
 <template id="login-page">
   <div class="vue-component">
-
     <div class="container">
+      <br/>
       <h1>Login</h1>
+      <br/>
       <ul>
         <li class="text-danger" v-for="error in errors">{{ error }}</li>
       </ul>
       <div class="form-group">
-        <label>Email:</label>
-        <input type="email" class="form-control" v-model="email">
-      </div>
+        <label>*Email:</label>
+        <input type="email" class="form-control" v-model="email" style="width: 290px;"/>
+      </div><br/>
       <div class="form-group">
-        <label>Password:</label>
-        <input type="password" class="form-control" v-model="password">
-      </div>
+        <label>*Password:</label>
+        <input type="password" class="form-control" v-model="password"style="width: 290px;"/>
+        <input id="checkBox" type="checkbox">
+        <label>Remember my password </label>
+         </div><br/>
       <button class="btn btn-primary" v-on:click="submit()">Submit</button>
-    </div>
+    </br>
+       <a href="#" target="_blank">Forgot your password?</a> 
+    </div><br/>
 
   </div>
 </template>
 
-  <template id="player-index-page">
-<video id="my-video" class="video-js" controls preload="auto" width="640" height="264"
-  poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
-    <source src=http://techslides.com/demos/sample-videos/small.mp4 type=video/mp4>
-    <source src=http://techslides.com/demos/sample-videos/small.webm type=video/webm>
-    <p class="vjs-no-js">
-      To view this video please enable JavaScript, and consider upgrading to a web browser that
-      <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-    </p>
+<template id="logout-page">
+  <div class="vue-component">
+    <div class="container">
+  <br>
+    <h1> Thank you for visiting Digital Media </h1>
+  </br>
+    <a v-bind:href=" '/#/movies/'" class="btn btn-primary float-right">Retrun to Home </a>
+    <a v-bind:href=" '/#/login/'" class="btn btn-success float-left">Login </a>
+  </br>
+</br>
+</template>
+
+  <template id="player-show-page">
+    <div class="vue-component">
+<div style="position:relative;height:0;padding-bottom:52.71%"> <iframe v-bind:src= "movie.content_url" style="position:absolute;width:100%;height:100%;left:0" width="683" height="360" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+</div>
   </video>
   </template>
+  <template id="browse-index-page">
+ <div class="vue-component">
+  <div class ="container">
+      <div class ="row">
+        <br>
+         <h1 style="font-family:verdana;">Recently Added</h1>
+       </br>
+        <div v-for="movie in movies" class="col-md-4">
+          <div class="card md-4">
+              <img class="images card-img-top"  v-bind:src="'https://image.tmdb.org/t/p/w185/' + movie.poster_path" alt="">
+            <div class="card-body">
+          <h2>{{movie.original_title}}</h2>
+          </br>
+        <a v-bind:href=" '/#/movies/'" class="btn btn-primary float-right">Add to Watchlist</a>
+        <a v-bind:href="'/#/movies/' + movie.id" class="btn btn-success float-left">View More Details</a>
+            </br>
+             </br>
+              </br>
+               </br>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+  <template id="tvshows-index-page">
+ <div class="vue-component">
+  <div class ="container">
+      <div class ="row">
+         <br>
+         <h1 style="font-family:verdana;">TV Shows</h1>
+       </br>
+        <div v-for="tvshow in tvshows" class="col-md-4">
+          <div class="card md-4">
+              <img class="images card-img-top"  v-bind:src="'https://image.tmdb.org/t/p/w185/' + tvshow.poster_path" alt="">
+            <div class="card-body">
+          <h2>{{tvshow.name}}</h2>
+        </br>
+        <a v-bind:href=" '/#/movies/'" class="btn btn-primary float-right">Add to Watchlist</a>
+        <a v-bind:href="'/#/tvshow/' + tvshow.id" class="btn btn-success float-left">View More Details</a>
+         </br>
+             </br>
+              </br>
+               </br>
+          </div>
+        </div>
+       </div>
+      </div>
+    </div>
+   </div>
+  </template>
+
+   <template id="request-page">
+    <div class="vue-component">
+    <div class="container">
+      <br/>
+      <h1>Request a Movie</h1>
+      <br/>
+      <div class="form-group">
+        <label>Movie Name:</label> 
+        <input type="text" class="form-control" v-model="movie_name" style="width: 290px;" />
+      </div><br/>
+       <div class="form-group">
+      <label>Year:</label> 
+        <input type="text" class="form-control" v-model="year" style="width: 100px;" />
+      </div><br/>
+      <div class="form-group">
+        <label>Actor:</label>
+        <input type="email" class="form-control" v-model="actor" style="width: 290px; height:150px; " />
+      </div><br/>
+      <div class="form-group">
+        <label>Genre:</label>
+        <input type="password" class="form-control" v-model="genre" style = "width: 290px;" />
+      </div><br/>
+      <button class="btn btn-primary" v-on:click="submit()">Submit</button>
+      <div>
+      <a href="http://www.imdb.com/" target="_blank">Look up Movies?</a> 
+    </div>
+    </div><br/>
+  </div>
+</template>
+
+
+
